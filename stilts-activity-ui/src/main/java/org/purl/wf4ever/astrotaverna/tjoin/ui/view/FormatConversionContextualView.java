@@ -4,16 +4,13 @@ import java.awt.Frame;
 
 import javax.swing.Action;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
 
-import org.purl.wf4ever.astrotaverna.tpipe.FormatConversionActivity;
-import org.purl.wf4ever.astrotaverna.tpipe.FormatConversionActivityConfigurationBean;
 import org.purl.wf4ever.astrotaverna.tjoin.ui.config.FormatConversionConfigureAction;
-import org.purl.wf4ever.astrotaverna.tjoin.ui.config.StiltsConfigureAction;
+import org.purl.wf4ever.astrotaverna.tpipe.FormatConversionActivity;
 
 
 @SuppressWarnings("serial")

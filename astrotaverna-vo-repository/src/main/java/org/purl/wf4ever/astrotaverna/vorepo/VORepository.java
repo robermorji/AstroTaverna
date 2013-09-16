@@ -7,17 +7,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.namespace.QName;
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.WebServiceException;
-
 import net.ivoa.wsdl.registrysearch.v1.ResolveResponse;
 import net.ivoa.xml.adql.v1.AtomType;
 import net.ivoa.xml.adql.v1.ClosedSearchType;
 import net.ivoa.xml.adql.v1.ColumnReferenceType;
 import net.ivoa.xml.adql.v1.IntersectionSearchType;
 import net.ivoa.xml.adql.v1.LikePredType;
+import net.ivoa.xml.adql.v1.LiteralType;
 import net.ivoa.xml.adql.v1.SearchType;
 import net.ivoa.xml.adql.v1.StringType;
 import net.ivoa.xml.adql.v1.UnionSearchType;
@@ -27,12 +23,18 @@ import net.ivoa.xml.voresource.v1.Capability;
 import net.ivoa.xml.voresource.v1.Resource;
 import net.ivoa.xml.voresource.v1.Service;
 
-import org.apache.commons.beanutils.PropertyUtilsBean;
-import org.apache.log4j.Logger;
+import org.apache.log4j.*;
 
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.namespace.QName;
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.WebServiceException;
+
+import org.apache.commons.beanutils.PropertyUtilsBean;
 import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.ErrorResp;
 import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.RegistrySearchPortType;
 import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.RegistrySearchService;
+
 
 public class VORepository {
 	private static final String DUMMY_SEARCH_WSDL = "/wsdl/dummySearch.wsdl";

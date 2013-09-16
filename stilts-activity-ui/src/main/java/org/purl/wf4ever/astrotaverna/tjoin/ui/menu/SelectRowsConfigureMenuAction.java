@@ -3,8 +3,9 @@ package org.purl.wf4ever.astrotaverna.tjoin.ui.menu;
 import javax.swing.Action;
 
 import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
-import org.purl.wf4ever.astrotaverna.tpipe.SelectRowsActivity;
+
 import org.purl.wf4ever.astrotaverna.tjoin.ui.config.SelectRowsConfigureAction;
+import org.purl.wf4ever.astrotaverna.tpipe.SelectRowsActivity;
 
 public class SelectRowsConfigureMenuAction extends
 		AbstractConfigureActivityMenuAction<SelectRowsActivity> {

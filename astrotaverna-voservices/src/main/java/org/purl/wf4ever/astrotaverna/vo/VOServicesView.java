@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CancellationException;
 
+import org.apache.log4j.*;
+
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -27,14 +30,14 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import net.ivoa.xml.conesearch.v1.ConeSearch;
-import net.ivoa.xml.sia.v1.SimpleImageAccess;
-import net.ivoa.xml.slap.v0.SimpleLineAccess;
-import net.ivoa.xml.ssa.v0.SimpleSpectralAccess;
 import net.ivoa.xml.voresource.v1.Capability;
 import net.ivoa.xml.voresource.v1.Service;
 import net.sf.taverna.t2.workbench.ui.zaria.UIComponentSPI;
+import net.ivoa.xml.slap.v0.SimpleLineAccess;
+import net.ivoa.xml.ssa.v0.SimpleSpectralAccess;
+import net.ivoa.xml.sia.v1.SimpleImageAccess;
+import net.ivoa.xml.tapregext.v1.TableAccess;
 
-import org.apache.log4j.Logger;
 import org.purl.wf4ever.astrotaverna.vo.utils.ModelIterator;
 import org.purl.wf4ever.astrotaverna.vorepo.VORepository.Status;
 
@@ -103,7 +106,16 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 			this.searchType = SimpleSpectralAccess.class;
 		}
 	}
-	
+
+	public class TAPSearchAction extends SearchAction {
+		private static final long serialVersionUID = 1L;
+
+		public TAPSearchAction() {
+			super("TAP Search");
+			this.searchType = TableAccess.class;
+		}
+	}
+
 	public class SLASearchAction extends SearchAction {
 		private static final long serialVersionUID = 1L;
 
@@ -125,6 +137,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	private JComboBox registry;
 	private JSplitPane results;
 	private JPanel resultsDetails;
+	private JPanel tapSearch;
 
 	private JTable resultsTable;
 
@@ -133,6 +146,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	private SIASearchAction siaSearchAction = new SIASearchAction();
 //	private SLASearchAction slaSearchAction = new SLASearchAction();
 	private SSASearchAction ssaSearchAction = new SSASearchAction();
+	private TAPSearchAction tapSearchAction = new TAPSearchAction();
 
 	// SWing stuff
 	private JLabel status;
@@ -202,21 +216,64 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 
+		gbc.gridwidth = 3;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		add(makeSearchBox(), gbc);
 		gbc.weightx = 1.0;
 		gbc.weighty = 0.0;
-		gbc.gridx = 1;
 		gbc.fill = GridBagConstraints.BOTH;
-		add(new JPanel(), gbc);// filler
 
 		gbc.weighty = 1.0;
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.gridwidth = 2;
 		add(makeResults(), gbc);
+
+		gbc.gridx = 2;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.gridwidth = 1;
+		gbc.weightx = 0.66;
+		gbc.weighty = 1.0;
+		tapSearch = new JPanel();
+
+		gbc.anchor = GridBagConstraints.NORTHEAST;
+		makeTapSearch();
+
+		add(tapSearch, gbc);
+		tapSearch.setVisible(Boolean.FALSE);
 		getController().checkEndpoint();
 		updateDetails();
 		updateServices();
+	}
+
+	protected void makeTapSearch(){
+		this.tapSearch = new JPanel(new GridBagLayout());
+		GridBagConstraints gbcUp = new GridBagConstraints();
+		GridBagConstraints gbcDown = new GridBagConstraints();
+		GridBagConstraints gbcButton = new GridBagConstraints();
+		gbcUp.gridx = 0;
+		gbcUp.gridy = 0;
+		gbcUp.anchor = GridBagConstraints.FIRST_LINE_START;
+		gbcUp.fill = GridBagConstraints.BOTH;
+		tapSearch.add(new JLabel("Query:"), gbcUp);
+
+		gbcDown.anchor = GridBagConstraints.FIRST_LINE_START;
+		gbcDown.fill = GridBagConstraints.BOTH;
+		gbcDown.gridx = 0;
+		gbcDown.gridy = 1;
+		gbcDown.gridheight = 2;
+		gbcDown.weightx = 0.66;
+		gbcDown.weighty = 1.0;
+		tapSearch.add(new JTextArea(10, 10), gbcDown);
+
+		gbcButton.anchor = GridBagConstraints.CENTER;
+		gbcDown.fill = GridBagConstraints.NONE;
+		gbcDown.gridheight = 1;
+		gbcDown.gridx = 0;
+		gbcDown.weightx = 0.0;
+		gbcDown.gridy = 3;
+		tapSearch.add(new JButton("Submit"), gbcDown);
+
 	}
 
 	protected Component makeResults() {
@@ -355,6 +412,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		// Disabled as it generally gives 0 results
 		//searchButtons.add(new JButton(slaSearchAction));
 		searchButtons.add(new JButton(ssaSearchAction));
+		searchButtons.add(new JButton(tapSearchAction));
 		return searchButtons;
 	}
 
@@ -426,6 +484,18 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		if (service == null) {
 			addToWorkflow.setEnabled(false);
 			return;
+		}
+		else {
+			Boolean visible = false;
+			for(Capability c: service.getCapability()){
+				if (c instanceof TableAccess){
+					tapSearch.setVisible(Boolean.TRUE);
+					((GridBagConstraints)tapSearch.getLayout()).weightx = 0.66;
+					visible = true;
+				}
+			}
+			if (!visible)
+				tapSearch.setVisible(Boolean.FALSE);
 		}
 		addToWorkflow.setEnabled(true);
 	}

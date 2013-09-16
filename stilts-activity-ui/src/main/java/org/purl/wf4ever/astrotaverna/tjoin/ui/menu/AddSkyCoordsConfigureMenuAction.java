@@ -3,8 +3,9 @@ package org.purl.wf4ever.astrotaverna.tjoin.ui.menu;
 import javax.swing.Action;
 
 import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
-import org.purl.wf4ever.astrotaverna.tpipe.AddSkyCoordsActivity;
+
 import org.purl.wf4ever.astrotaverna.tjoin.ui.config.AddSkyCoordsConfigureAction;
+import org.purl.wf4ever.astrotaverna.tpipe.AddSkyCoordsActivity;
 
 public class AddSkyCoordsConfigureMenuAction extends
 		AbstractConfigureActivityMenuAction<AddSkyCoordsActivity> {

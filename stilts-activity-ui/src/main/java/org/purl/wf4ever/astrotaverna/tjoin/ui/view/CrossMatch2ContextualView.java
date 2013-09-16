@@ -4,17 +4,13 @@ import java.awt.Frame;
 
 import javax.swing.Action;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
 
-
 import org.purl.wf4ever.astrotaverna.tjoin.CrossMatch2Activity;
 import org.purl.wf4ever.astrotaverna.tjoin.ui.config.CrossMatch2ConfigureAction;
-import org.purl.wf4ever.astrotaverna.tjoin.ui.config.TcatConfigureAction;
-import org.purl.wf4ever.astrotaverna.tjoin.ui.config.StiltsConfigureAction;
 
 
 @SuppressWarnings("serial")

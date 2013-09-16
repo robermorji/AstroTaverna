@@ -6,12 +6,11 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.*;
 
 import javax.swing.JEditorPane;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
-
-import org.apache.log4j.Logger;
 
 /**
  * A {@link JEditorPane} for showing (simple) HTML.

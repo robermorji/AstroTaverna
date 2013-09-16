@@ -1,11 +1,13 @@
 package org.purl.wf4ever.astrotaverna.pdl.ui.menu;
 
+
 import javax.swing.Action;
 
-
 import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
+
 import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivity;
 import org.purl.wf4ever.astrotaverna.pdl.ui.config.PDLServiceConfigureAction;
+
 
 /**
  * This action is responsible for enabling the contextual menu entry

@@ -3,8 +3,9 @@ package org.purl.wf4ever.astrotaverna.tjoin.ui.menu;
 import javax.swing.Action;
 
 import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
-import org.purl.wf4ever.astrotaverna.tpipe.CoordTransformationActivity;
+
 import org.purl.wf4ever.astrotaverna.tjoin.ui.config.CoordTransformationConfigureAction;
+import org.purl.wf4ever.astrotaverna.tpipe.CoordTransformationActivity;
 
 public class CoordTransformationConfigureMenuAction extends
 		AbstractConfigureActivityMenuAction<CoordTransformationActivity> {

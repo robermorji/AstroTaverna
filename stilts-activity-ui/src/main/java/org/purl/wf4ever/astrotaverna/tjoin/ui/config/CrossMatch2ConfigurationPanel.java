@@ -2,16 +2,15 @@ package org.purl.wf4ever.astrotaverna.tjoin.ui.config;
 
 import java.awt.GridLayout;
 
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JCheckBox;
+
+import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationPanel;
 
 import org.purl.wf4ever.astrotaverna.tjoin.CrossMatch2Activity;
 import org.purl.wf4ever.astrotaverna.tjoin.CrossMatch2ActivityConfigurationBean;
-
-
-import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationPanel;
 
 
 @SuppressWarnings("serial")

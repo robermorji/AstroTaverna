@@ -6,9 +6,6 @@ import javax.swing.ImageIcon;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesActivity;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesDegreeActivity;
 
-import net.sf.taverna.t2.workbench.activityicons.ActivityIconSPI;
-import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
-
 public class CoordinatesServiceIcon implements ActivityIconSPI {
 
 	private static Icon icon;

@@ -29,15 +29,19 @@
 				schemaLocation="http://www.ivoa.net/xml/STC/STCcoords/v1.10" />
 			<xs:import namespace="http://www.ivoa.net/xml/STC/STCregion/v1.10"
 				schemaLocation="http://www.ivoa.net/xml/STC/STCregion/v1.10" />
+			<xs:import namespace="http://www.ivoa.net/xml/TAPRegExt/v1.0"
+				schemaLocation="http://www.ivoa.net/xml/TAPRegExt/v1.0" />
 			<xs:import namespace="http://www.ivoa.net/xml/VODataService/v1.0"
 				schemaLocation="http://www.ivoa.net/xml/VODataService/v1.0" />
 			<xs:import namespace="http://www.ivoa.net/xml/VOResource/v1.0"
 				schemaLocation="http://www.ivoa.net/xml/VOResource/v1.0" />
 			<xs:import namespace="http://www.ivoa.net/xml/VOStandard/v0.1"
 				schemaLocation="http://www.ivoa.net/xml/VOStandard/v0.1" />
+			
 			<!-- WFE-448 -->
 			<xs:import namespace="http://www.ivoa.net/xml/CEA/v1.0rc1"
 				schemaLocation="http://software.astrogrid.org/schema/vo-resource-types/CEAService/v1.0rc1/CEAService.xsd" />
+
 		</xs:schema>
 	</types>
 

@@ -11,6 +11,7 @@ import org.astrogrid.samp.client.HubConnection;
 import org.astrogrid.samp.client.HubConnector;
 import org.astrogrid.samp.gui.GuiHubConnector;
 
+
 public class TavernaSampConnection {
 
 	private GuiHubConnector hubConnector;

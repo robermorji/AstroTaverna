@@ -1,9 +1,6 @@
 package org.purl.wf4ever.astrotaverna.pdl;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -11,13 +8,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.apache.log4j.*;
 
-import net.ivoa.parameter.model.Expression;
 import net.ivoa.parameter.model.SingleParameter;
 import net.sf.taverna.t2.visit.VisitReport;
 import net.sf.taverna.t2.visit.VisitReport.Status;
 import net.sf.taverna.t2.workflowmodel.Dataflow;
+import net.sf.taverna.t2.workflowmodel.Datalink;
 import net.sf.taverna.t2.workflowmodel.Merge;
 import net.sf.taverna.t2.workflowmodel.MergeInputPort;
 import net.sf.taverna.t2.workflowmodel.MergeOutputPort;
@@ -25,12 +22,10 @@ import net.sf.taverna.t2.workflowmodel.MergePort;
 import net.sf.taverna.t2.workflowmodel.Port;
 import net.sf.taverna.t2.workflowmodel.Processor;
 import net.sf.taverna.t2.workflowmodel.ProcessorInputPort;
-import net.sf.taverna.t2.workflowmodel.Datalink;
 import net.sf.taverna.t2.workflowmodel.ProcessorPort;
-import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
 import net.sf.taverna.t2.workflowmodel.health.HealthCheck;
 import net.sf.taverna.t2.workflowmodel.health.HealthChecker;
-import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
+import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityInputPort;
 import net.sf.taverna.t2.workflowmodel.utils.Tools;
 

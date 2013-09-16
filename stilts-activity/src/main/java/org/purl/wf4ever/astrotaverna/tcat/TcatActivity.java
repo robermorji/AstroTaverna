@@ -4,15 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-//comment from terminal
-import org.purl.wf4ever.astrotaverna.utils.MyUtils;
-import org.purl.wf4ever.astrotaverna.utils.NoExitSecurityManager;
-
-import uk.ac.starlink.ttools.Stilts;
 
 import net.sf.taverna.t2.invocation.InvocationContext;
 import net.sf.taverna.t2.reference.ReferenceService;
@@ -20,7 +13,19 @@ import net.sf.taverna.t2.reference.T2Reference;
 import net.sf.taverna.t2.workflowmodel.processor.activity.AbstractAsynchronousActivity;
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivity;
+
+
+
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivityCallback;
+
+
+
+
+//comment from terminal
+import org.purl.wf4ever.astrotaverna.utils.MyUtils;
+import org.purl.wf4ever.astrotaverna.utils.NoExitSecurityManager;
+
+import uk.ac.starlink.ttools.Stilts;
 
 public class TcatActivity extends
 		AbstractAsynchronousActivity<TcatActivityConfigurationBean>

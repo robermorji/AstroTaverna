@@ -2,14 +2,9 @@ package org.purl.wf4ever.astrotaverna.coordinates.ui.serviceprovider;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.Icon;
-
-import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
-import net.sf.taverna.t2.servicedescriptions.ServiceDescriptionProvider;
-import net.sf.taverna.t2.servicedescriptions.ServiceDescriptionProvider.FindServiceDescriptionsCallBack;
 
 //public class coordinatesServiceProvider implements ServiceDescriptionProvider {
 public class CoordinatesServiceProvider implements

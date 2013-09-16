@@ -10,8 +10,6 @@ import javax.swing.JTextField;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesActivity;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesActivityConfigurationBean;
 
-import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationPanel;
-
 
 
 @SuppressWarnings("serial")

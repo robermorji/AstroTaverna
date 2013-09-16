@@ -3,8 +3,6 @@ package org.purl.wf4ever.astrotaverna.query.ui.serviceprovider;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-
-
 import net.sf.taverna.t2.workbench.activityicons.ActivityIconSPI;
 import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
 

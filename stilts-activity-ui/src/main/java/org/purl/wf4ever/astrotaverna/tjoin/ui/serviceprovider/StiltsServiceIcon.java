@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 
 import net.sf.taverna.t2.workbench.activityicons.ActivityIconSPI;
 import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
+
 import org.purl.wf4ever.astrotaverna.tjoin.TjoinActivity;
 
 public class StiltsServiceIcon implements ActivityIconSPI {

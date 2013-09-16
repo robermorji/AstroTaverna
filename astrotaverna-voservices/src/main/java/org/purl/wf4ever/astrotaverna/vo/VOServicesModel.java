@@ -7,15 +7,16 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.purl.wf4ever.astrotaverna.vorepo.VORepository;
-import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.ErrorResp;
-
 import net.ivoa.xml.conesearch.v1.ConeSearch;
 import net.ivoa.xml.sia.v1.SimpleImageAccess;
 import net.ivoa.xml.slap.v0.SimpleLineAccess;
 import net.ivoa.xml.ssa.v0.SimpleSpectralAccess;
+import net.ivoa.xml.tapregext.v1.TableAccess;
 import net.ivoa.xml.voresource.v1.Capability;
 import net.ivoa.xml.voresource.v1.Service;
+
+import org.purl.wf4ever.astrotaverna.vorepo.VORepository;
+import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.ErrorResp;
 
 public class VOServicesModel {
 	private static List<Service> EMPTY_SERVICES = Collections
@@ -188,8 +189,6 @@ public class VOServicesModel {
 			parameters.put("ROTANG", false);
 			parameters.put("PROJ", false);
 			
-			
-			
 		} else if (searchType == SimpleLineAccess.class) {
 			// http://www.ivoa.net/Documents/SLAP/20101209/index.html
 			parameters.put("WAVELENGTH", true);
@@ -201,7 +200,16 @@ public class VOServicesModel {
 			parameters.put("TEMPERATURE", false);
 			parameters.put("EINSTEIN_A", false);
 			parameters.put("PROCESS_TYPE", false);
-			parameters.put("PROCESS_NAME", false);						
+			parameters.put("PROCESS_NAME", false);
+			
+		} else if (searchType == TableAccess.class) {
+			// http://www.ivoa.net/Documents/TAPRegExt/20120827/REC-TAPRegExt-1.0.html
+			parameters.put("MAXREC", false);
+			parameters.put("LANG", false);
+			parameters.put("FORMAT", false);
+			parameters.put("UPLOAD", false);
+			parameters.put("MTIME", true);
+			parameters.put("RUNID", false);
 		} else {
 			return parameters;
 		}

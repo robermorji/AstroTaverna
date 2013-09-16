@@ -4,24 +4,36 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.*;
+
+import visitors.GeneralParameterVisitor;
+import CommonsObjects.GeneralParameter;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 //comment from terminal
-import org.apache.log4j.Logger;
-
-
-
-import CommonsObjects.GeneralParameter;
-
 //import uk.ac.starlink.ttools.Stilts;
-import visitors.GeneralParameterVisitor;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 import net.ivoa.parameter.model.Service;
 import net.ivoa.parameter.model.SingleParameter;

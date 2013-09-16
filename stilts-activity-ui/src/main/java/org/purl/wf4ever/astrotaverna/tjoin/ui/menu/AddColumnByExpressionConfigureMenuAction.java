@@ -1,10 +1,12 @@
 package org.purl.wf4ever.astrotaverna.tjoin.ui.menu;
 
+
 import javax.swing.Action;
 
 import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
-import org.purl.wf4ever.astrotaverna.tpipe.AddColumnByExpressionActivity;
+
 import org.purl.wf4ever.astrotaverna.tjoin.ui.config.AddColumnByExpressionConfigureAction;
+import org.purl.wf4ever.astrotaverna.tpipe.AddColumnByExpressionActivity;
 
 public class AddColumnByExpressionConfigureMenuAction extends
 		AbstractConfigureActivityMenuAction<AddColumnByExpressionActivity> {

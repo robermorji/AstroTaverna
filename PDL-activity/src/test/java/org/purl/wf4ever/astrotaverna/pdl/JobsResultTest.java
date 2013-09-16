@@ -1,9 +1,8 @@
 package org.purl.wf4ever.astrotaverna.pdl;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
-import java.util.Map.Entry;
 
 import javax.xml.parsers.ParserConfigurationException;
 

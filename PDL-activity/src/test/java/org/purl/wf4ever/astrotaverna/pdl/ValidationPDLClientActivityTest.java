@@ -1,30 +1,26 @@
 package org.purl.wf4ever.astrotaverna.pdl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
-import java.io.File;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URL;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
+//import org.purl.wf4ever.astrotaverna.utils.MyUtils;
+
+
+
+
+
+
+
 
 import net.sf.taverna.t2.activities.testutils.ActivityInvoker;
-import net.sf.taverna.t2.workflowmodel.OutputPort;
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
-import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityInputPort;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-//import org.purl.wf4ever.astrotaverna.utils.MyUtils;
 
 //http://pdl-calc.obspm.fr:8081/broadening/pdlDescription/PDL-Description.xml
 

@@ -1,24 +1,15 @@
 package org.purl.wf4ever.astrotaverna.tjoin.ui.config;
 
 import java.awt.GridLayout;
-import java.net.URI;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
 
-import net.sf.taverna.t2.visit.VisitReport;
-import net.sf.taverna.t2.visit.VisitReport.Status;
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationPanel;
-import net.sf.taverna.t2.workflowmodel.health.HealthCheck;
-import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
 
 import org.purl.wf4ever.astrotaverna.tpipe.AddSkyCoordsActivity;
 import org.purl.wf4ever.astrotaverna.tpipe.AddSkyCoordsActivityConfigurationBean;
-import javax.swing.JSpinner;
 
 @SuppressWarnings("serial")
 public class AddSkyCoordsConfigurationPanel

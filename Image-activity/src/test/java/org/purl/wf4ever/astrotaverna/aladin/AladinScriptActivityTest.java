@@ -1,19 +1,18 @@
 package org.purl.wf4ever.astrotaverna.aladin;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.*;
 
 import net.sf.taverna.raven.prelauncher.ClassLocation;
 import net.sf.taverna.t2.activities.testutils.ActivityInvoker;
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
 
-import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;

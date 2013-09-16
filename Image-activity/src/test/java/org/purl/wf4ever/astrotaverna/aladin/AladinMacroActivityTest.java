@@ -1,12 +1,10 @@
 package org.purl.wf4ever.astrotaverna.aladin;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-
 
 import net.sf.taverna.t2.activities.testutils.ActivityInvoker;
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;

@@ -1,10 +1,6 @@
 package org.purl.wf4ever.astrotaverna.pdl;
 
-import java.io.File;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Map;
 //import java.net.URI;
 
 

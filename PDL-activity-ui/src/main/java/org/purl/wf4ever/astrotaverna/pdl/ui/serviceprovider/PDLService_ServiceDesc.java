@@ -1,18 +1,15 @@
 package org.purl.wf4ever.astrotaverna.pdl.ui.serviceprovider;
 
-import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.Icon;
-
 
 import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
 import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
 
 import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivity;
 import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivityConfigurationBean;
-import org.purl.wf4ever.astrotaverna.pdl.ui.serviceprovider.PDLServiceIcon;
 
 public class PDLService_ServiceDesc extends ServiceDescription<PDLServiceActivityConfigurationBean> {
 

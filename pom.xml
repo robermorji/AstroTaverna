@@ -151,6 +151,7 @@
     <module>Image-activity</module>
     <module>Image-activity-ui</module>
     <module>query-activity-ui</module>
+    <module>tap-search</module>
   </modules>
   <scm>
   	<url>https://github.com/wf4ever/astrotaverna</url>

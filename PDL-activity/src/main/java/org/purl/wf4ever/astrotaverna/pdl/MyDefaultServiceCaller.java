@@ -1,22 +1,22 @@
 package org.purl.wf4ever.astrotaverna.pdl;
 
-import java.util.HashMap;
-import java.util.List;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-
-import org.apache.log4j.Logger;
-
-import CommonsObjects.GeneralParameter;
-
+import java.util.HashMap;
+import java.util.List;
 
 import net.ivoa.parameter.model.ParameterType;
 import net.ivoa.parameter.model.SingleParameter;
 import net.ivoa.pdl.interpreter.utilities.Utilities;
+
+import org.apache.log4j.*;
+
+import CommonsObjects.GeneralParameter;
+
 //import net.ivoa.pdl.servicecaller.IserviceCaller;
 
 public class MyDefaultServiceCaller {

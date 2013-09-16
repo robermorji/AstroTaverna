@@ -3,11 +3,11 @@ package org.purl.wf4ever.astrotaverna.image.ui.config;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 
-import org.purl.wf4ever.astrotaverna.aladin.AladinScriptActivity;
-import org.purl.wf4ever.astrotaverna.aladin.AladinScriptActivityConfigurationBean;
-
 import net.sf.taverna.t2.workbench.ui.actions.activity.ActivityConfigurationAction;
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationDialog;
+
+import org.purl.wf4ever.astrotaverna.aladin.AladinScriptActivity;
+import org.purl.wf4ever.astrotaverna.aladin.AladinScriptActivityConfigurationBean;
 
 
 

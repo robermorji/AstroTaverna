@@ -2,7 +2,9 @@ package org.purl.wf4ever.astrotaverna.vo;
 
 import java.text.SimpleDateFormat;
 
-import org.purl.wf4ever.astrotaverna.vo.utils.HTMLPane;
+
+
+
 
 
 import net.ivoa.xml.conesearch.v1.ConeSearch;
@@ -13,6 +15,7 @@ import net.ivoa.xml.sia.v1.SkySize;
 import net.ivoa.xml.slap.v0.SimpleLineAccess;
 import net.ivoa.xml.ssa.v0.DataSource;
 import net.ivoa.xml.ssa.v0.SimpleSpectralAccess;
+import net.ivoa.xml.tapregext.v1.TableAccess;
 import net.ivoa.xml.vodataservice.v1.HTTPQueryType;
 import net.ivoa.xml.vodataservice.v1.InputParam;
 import net.ivoa.xml.vodataservice.v1.ParamHTTP;
@@ -28,6 +31,8 @@ import net.ivoa.xml.voresource.v1.ResourceName;
 import net.ivoa.xml.voresource.v1.Service;
 import net.ivoa.xml.voresource.v1.Source;
 import net.ivoa.xml.voresource.v1.Type;
+
+import org.purl.wf4ever.astrotaverna.vo.utils.HTMLPane;
 
 public class VOServiceDetails extends HTMLPane {
 	private static final long serialVersionUID = 1L;
@@ -77,6 +82,10 @@ public class VOServiceDetails extends HTMLPane {
 					SimpleSpectralAccess spa = (SimpleSpectralAccess) c;
 					simpleSpectralAccess(spa);
 				}
+				if (c instanceof TableAccess) {
+					TableAccess tap = (TableAccess) c;
+					tableAccessProtocol(tap);
+				}
 
 			}
 			paramHTTP((ParamHTTP) i);
@@ -109,6 +118,20 @@ public class VOServiceDetails extends HTMLPane {
 		}
 
 		message.append("</dl>");
+	}
+	
+	protected void tableAccessProtocol(TableAccess tap) {
+		message.append("<dt>Test query</dt><dd>");
+		message.append("<dl>");
+		appendFormat("<dt>MAXREC</dt><dd>%s</dd>", tap.getOutputLimit());
+		appendFormat("<dt>LANG</dt><dd>%s</dd>", tap.getLanguage());
+		appendFormat("<dt>FORMAT</dt><dd>%s</dd>", tap.getOutputFormat());
+		appendFormat("<dt>UPLOAD</dt><dd>%s</dd>", tap.getUploadMethod());
+		appendFormat("<dt>MTIME</dt><dd>%s</dd>", tap.getRetentionPeriod());
+		appendFormat("<dt>RUNID</dt><dd>%s</dd>", tap.getStandardID());
+		message.append("</dl>");
+		message.append("</dd>");
+		
 	}
 
 	protected void content(Content content) {
@@ -243,7 +266,7 @@ public class VOServiceDetails extends HTMLPane {
 		appendFormat("<html><body><h2>%s: %s</h2>", service.getShortName(),
 				service.getTitle());
 
-		Content content = service.getContent();
+		Content content = (Content) service.getContent();
 		if (content != null) {
 			content(content);
 		}

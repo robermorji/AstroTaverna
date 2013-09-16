@@ -6,7 +6,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationPanel;
 
 import org.purl.wf4ever.astrotaverna.tcat.TcatListActivity;

@@ -11,8 +11,6 @@ import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesActivity;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesActivityConfigurationBean;
 import org.purl.wf4ever.astrotaverna.coordinates.ui.config.CoordinatesConfigureAction;
 
-import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
-
 
 @SuppressWarnings("serial")
 public class CoordinatesContextualView extends ContextualView {

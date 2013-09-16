@@ -1,6 +1,5 @@
 package org.purl.wf4ever.astrotaverna.tjoin;
 
-import java.io.File;
 import java.io.Serializable;
 //import java.net.URI;
 

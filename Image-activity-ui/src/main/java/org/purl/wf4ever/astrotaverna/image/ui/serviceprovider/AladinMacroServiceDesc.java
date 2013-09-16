@@ -1,16 +1,15 @@
 package org.purl.wf4ever.astrotaverna.image.ui.serviceprovider;
 
-import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.Icon;
 
-import org.purl.wf4ever.astrotaverna.aladin.AladinMacroActivity;
-import org.purl.wf4ever.astrotaverna.aladin.AladinMacroActivityConfigurationBean;
-
 import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
 import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
+
+import org.purl.wf4ever.astrotaverna.aladin.AladinMacroActivity;
+import org.purl.wf4ever.astrotaverna.aladin.AladinMacroActivityConfigurationBean;
 
 
 public class AladinMacroServiceDesc extends ServiceDescription<AladinMacroActivityConfigurationBean> {

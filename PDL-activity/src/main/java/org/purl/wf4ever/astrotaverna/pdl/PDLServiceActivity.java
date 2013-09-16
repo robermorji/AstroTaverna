@@ -4,45 +4,19 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import org.apache.log4j.*;
+
 import javax.xml.parsers.ParserConfigurationException;
-//comment from terminal
-import org.apache.log4j.Logger;
-import org.xml.sax.SAXException;
 
-
-import CommonsObjects.GeneralParameter;
-
-import uk.ac.starlink.table.ColumnInfo;
-import uk.ac.starlink.table.RowSequence;
-import uk.ac.starlink.table.StarTable;
-import uk.ac.starlink.table.StarTableFactory;
-//import uk.ac.starlink.ttools.Stilts;
-import visitors.GeneralParameterVisitor;
-
-import net.ivoa.parameter.model.ConditionalStatement;
-import net.ivoa.parameter.model.ConstraintOnGroup;
-import net.ivoa.parameter.model.ParameterGroup;
-import net.ivoa.parameter.model.ParameterReference;
-import net.ivoa.parameter.model.Service;
 import net.ivoa.parameter.model.SingleParameter;
-import net.ivoa.pdl.interpreter.expression.ExpressionParserFactory;
-import net.ivoa.pdl.interpreter.groupInterpreter.GroupHandlerHelper;
 import net.ivoa.pdl.interpreter.groupInterpreter.GroupProcessor;
-import net.ivoa.pdl.interpreter.utilities.UserMapper;
 import net.ivoa.pdl.interpreter.utilities.Utilities;
 import net.sf.taverna.t2.invocation.InvocationContext;
 import net.sf.taverna.t2.reference.ReferenceService;
@@ -52,7 +26,23 @@ import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationE
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivity;
 import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivityCallback;
 
-import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivityConfigurationBean;
+import org.xml.sax.SAXException;
+//comment from terminal
+//import uk.ac.starlink.ttools.Stilts;
+
+
+
+
+
+
+
+
+
+import uk.ac.starlink.table.ColumnInfo;
+import uk.ac.starlink.table.RowSequence;
+import uk.ac.starlink.table.StarTable;
+import uk.ac.starlink.table.StarTableFactory;
+import CommonsObjects.GeneralParameter;
 
 public class PDLServiceActivity extends
 		AbstractAsynchronousActivity<PDLServiceActivityConfigurationBean>

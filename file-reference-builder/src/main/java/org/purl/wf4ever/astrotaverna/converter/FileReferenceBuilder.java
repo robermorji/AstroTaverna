@@ -5,13 +5,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.log4j.*;
+
 import net.sf.taverna.t2.reference.ExternalReferenceBuilderSPI;
 import net.sf.taverna.t2.reference.ReferenceContext;
 import net.sf.taverna.t2.reference.impl.external.file.FileReference;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.apache.log4j.Logger;
 
 public class FileReferenceBuilder implements
 		ExternalReferenceBuilderSPI<FileReference> {

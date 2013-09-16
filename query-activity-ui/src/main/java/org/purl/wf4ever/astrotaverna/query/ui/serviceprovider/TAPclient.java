@@ -1,11 +1,6 @@
 package org.purl.wf4ever.astrotaverna.query.ui.serviceprovider;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Map;
 
 
 /**

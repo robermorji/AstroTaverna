@@ -6,9 +6,6 @@ import java.util.List;
 
 import javax.swing.Icon;
 
-import org.purl.wf4ever.astrotaverna.pdl.ui.serviceprovider.ValidationPDLClientServiceDesc;
-
-
 import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
 import net.sf.taverna.t2.servicedescriptions.ServiceDescriptionProvider;
 

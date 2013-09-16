@@ -1,10 +1,7 @@
 package org.purl.wf4ever.astrotaverna.pdl.ui.config;
 
 import java.awt.GridLayout;
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URISyntaxException;
-
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -12,9 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
-import net.ivoa.parameter.model.Service;
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationPanel;
-import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
 
 //import org.apache.log4j.Logger;
 import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivity;
