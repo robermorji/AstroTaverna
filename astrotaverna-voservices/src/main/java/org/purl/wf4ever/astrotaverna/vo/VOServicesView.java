@@ -4,6 +4,7 @@ import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URI;
@@ -230,50 +231,48 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		add(makeResults(), gbc);
 
 		gbc.gridx = 2;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.fill = GridBagConstraints.BOTH;
 		gbc.gridwidth = 1;
 		gbc.weightx = 0.66;
 		gbc.weighty = 1.0;
-		tapSearch = new JPanel();
 
-		gbc.anchor = GridBagConstraints.NORTHEAST;
-		makeTapSearch();
-
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+		this.tapSearch = new JPanel(new GridBagLayout());
 		add(tapSearch, gbc);
+		makeTapSearch();
 		tapSearch.setVisible(Boolean.FALSE);
+
+
 		getController().checkEndpoint();
 		updateDetails();
 		updateServices();
 	}
 
 	protected void makeTapSearch(){
-		this.tapSearch = new JPanel(new GridBagLayout());
+
 		GridBagConstraints gbcUp = new GridBagConstraints();
 		GridBagConstraints gbcDown = new GridBagConstraints();
-		GridBagConstraints gbcButton = new GridBagConstraints();
 		gbcUp.gridx = 0;
 		gbcUp.gridy = 0;
-		gbcUp.anchor = GridBagConstraints.FIRST_LINE_START;
+		gbcUp.anchor = GridBagConstraints.NORTHWEST;
 		gbcUp.fill = GridBagConstraints.BOTH;
 		tapSearch.add(new JLabel("Query:"), gbcUp);
 
-		gbcDown.anchor = GridBagConstraints.FIRST_LINE_START;
-		gbcDown.fill = GridBagConstraints.BOTH;
+		gbcDown.anchor = GridBagConstraints.WEST;
+		gbcDown.fill = GridBagConstraints.HORIZONTAL;
 		gbcDown.gridx = 0;
 		gbcDown.gridy = 1;
-		gbcDown.gridheight = 2;
-		gbcDown.weightx = 0.66;
+		gbcDown.weightx = 0.5;
 		gbcDown.weighty = 1.0;
-		tapSearch.add(new JTextArea(10, 10), gbcDown);
+		tapSearch.add(new JTextArea(10,10), gbcDown);
 
-		gbcButton.anchor = GridBagConstraints.CENTER;
-		gbcDown.fill = GridBagConstraints.NONE;
-		gbcDown.gridheight = 1;
+		gbcDown.anchor = GridBagConstraints.NORTH;
+		gbcDown.fill = GridBagConstraints.RELATIVE;
 		gbcDown.gridx = 0;
 		gbcDown.weightx = 0.0;
-		gbcDown.gridy = 3;
+		gbcDown.weighty = 1.0;
+		gbcDown.gridy = 2;
 		tapSearch.add(new JButton("Submit"), gbcDown);
-
 	}
 
 	protected Component makeResults() {
@@ -490,7 +489,6 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 			for(Capability c: service.getCapability()){
 				if (c instanceof TableAccess){
 					tapSearch.setVisible(Boolean.TRUE);
-					((GridBagConstraints)tapSearch.getLayout()).weightx = 0.66;
 					visible = true;
 				}
 			}
