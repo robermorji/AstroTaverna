@@ -67,10 +67,5 @@
 			<artifactId>astrotaverna-vo-repository</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.purl.wf4ever.astrotaverna</groupId>
-			<artifactId>tap-search</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 	</dependencies>
 </project>
