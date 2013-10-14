@@ -204,12 +204,15 @@ public class VOServicesModel {
 			
 		} else if (searchType == TableAccess.class) {
 			// http://www.ivoa.net/Documents/TAPRegExt/20120827/REC-TAPRegExt-1.0.html
-			parameters.put("MAXREC", false);
-			parameters.put("LANG", false);
-			parameters.put("FORMAT", false);
-			parameters.put("UPLOAD", false);
-			parameters.put("MTIME", true);
-			parameters.put("RUNID", false);
+//			parameters.put("MAXREC", false);
+//			parameters.put("LANG", false);
+//			parameters.put("FORMAT", false);
+//			parameters.put("UPLOAD", false);
+//			parameters.put("MTIME", true);
+//			parameters.put("RUNID", false);
+			parameters.put("Lang", true);
+			parameters.put("Query", true);
+			parameters.put("Request", true);
 		} else {
 			return parameters;
 		}

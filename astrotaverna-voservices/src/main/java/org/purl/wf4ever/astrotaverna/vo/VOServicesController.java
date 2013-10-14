@@ -2,6 +2,7 @@ package org.purl.wf4ever.astrotaverna.vo;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -24,6 +25,9 @@ import net.sf.taverna.t2.workbench.ui.impl.Workbench;
 import net.sf.taverna.t2.workbench.ui.workflowview.WorkflowView;
 
 import org.purl.wf4ever.astrotaverna.vorepo.VORepository.Status;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class VOServicesController {
@@ -150,7 +154,15 @@ public class VOServicesController {
 			return;
 		}
 	
-
+		//TODO: Add Parameters to url
+		if (getModel().getCurrentSearchType().getSimpleName() == "TableAcess"){
+			HashMap<String, String> parameters = new HashMap<String, String>();
+			parameters.put("lang", "ADQL-2.0");
+			parameters.put("query", "SELECT TOP 1000 * FROM amanda.nucand");
+			parameters.put("request", "doQuery");
+			serviceDescription.setParameters(parameters);
+		}
+						
 		AddToWorkflowDialog addDialog = new AddToWorkflowDialog(
 				serviceDescription, service);
 		addDialog.setController(this);
