@@ -255,6 +255,25 @@ public class TapQueryPanel extends JPanel {
     public boolean isSynchronous() {
         return syncToggle_.isSelected();
     }
+    
+    /**
+     * Returns the maximum rows
+     * 
+     * @return MAX REC value
+     */
+    public long getMaxrec() {
+    	return tcapPanel_.getMaxrec();
+    }
+    
+    /**
+     * Returns the query language currently selected in this panel.
+     * If none has been explicitly selected, "ADQL" will be returned.
+     *
+     * @return  selected query language
+     */
+    public String getQueryLanguage() {
+    	return tcapPanel_.getQueryLanguage();
+    }
 
     /**
      * Sets a short text string describing the TAP service used by this panel.

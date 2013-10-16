@@ -15,6 +15,7 @@ import javax.jws.WebService;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
+import net.ivoa.xml.tapregext.v1.TableAccess;
 import net.ivoa.xml.vodataservice.v1.ParamHTTP;
 import net.ivoa.xml.voresource.v1.AccessURL;
 import net.ivoa.xml.voresource.v1.Capability;
@@ -154,15 +155,6 @@ public class VOServicesController {
 			return;
 		}
 	
-		//TODO: Add Parameters to url
-		if (getModel().getCurrentSearchType().getSimpleName() == "TableAcess"){
-			HashMap<String, String> parameters = new HashMap<String, String>();
-			parameters.put("lang", "ADQL-2.0");
-			parameters.put("query", "SELECT TOP 1000 * FROM amanda.nucand");
-			parameters.put("request", "doQuery");
-			serviceDescription.setParameters(parameters);
-		}
-						
 		AddToWorkflowDialog addDialog = new AddToWorkflowDialog(
 				serviceDescription, service);
 		addDialog.setController(this);
@@ -197,6 +189,7 @@ public class VOServicesController {
 					AccessURL accessURL = http.getAccessURL().get(0);
 					serviceDescription
 							.setAccessURL(accessURL.getValue().trim());
+					addTapParameters(serviceDescription, searchType);
 					updateAccessUrl(serviceDescription, searchType);
 					break;
 				}
@@ -206,6 +199,19 @@ public class VOServicesController {
 			}
 		}
 		return serviceDescription;
+	}
+	
+	public void addTapParameters(VOServiceDescription serviceDescription, Class<? extends Capability> searchType){
+		//TODO: Add Parameters to serviceDescription from the TAP Panel
+		if (searchType == TableAccess.class){
+			HashMap<String, String> parameters = new HashMap<String, String>();
+			parameters.put("LANG", getView().TapTablePanelgetLang());
+			parameters.put("QUERY", getView().TapTablePanelgetQuery());
+			parameters.put("REQUEST", "doQuery");
+			parameters.put("SYNCHRONOUS", getView().TapTablePanelIsSynchronous());
+			parameters.put("MAXREC", getView().TapTablePanelgetMaxrec());
+			serviceDescription.setParameters(parameters);
+		}
 	}
 
 	public void addToWorkflow(VOServiceDescription serviceDescription) {

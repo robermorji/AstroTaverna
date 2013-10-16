@@ -50,6 +50,7 @@ import org.purl.wf4ever.astrotaverna.vorepo.VORepository.Status;
 import uk.ac.starlink.vo.TableSetPanel;
 import uk.ac.starlink.vo.TapTableLoadDialog;
 import uk.ac.starlink.vo.TableMeta;
+import uk.ac.starlink.vo.TapQueryPanel;
 
 public class VOServicesView extends JPanel implements UIComponentSPI {
 	public class RegistryChange implements ActionListener {
@@ -94,6 +95,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		public void actionPerformed(ActionEvent e) {
 			String search = keywords.getText();
 			getController().search(searchType, search);
+			tapSearchTab.setVisible(Boolean.FALSE);
 
 		}
 	}
@@ -313,13 +315,6 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		//TODO: Aqui insertar los componentes necesarios para mostrar las tablas y sus columnas
 		tapTables = new JPanel(new BorderLayout() );
 		
-		JButton setQueryButton = new JButton("Set Query");
-		setQueryButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.print("Hola");
-			}
-		});
-		tapTables.add(setQueryButton, BorderLayout.PAGE_END);
 		return tapTables;
 	}
 
@@ -609,6 +604,26 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	
 	public JPanel getTablePanel(){
 		return tapTables;
+	}
+	
+	public String TapTablePanelIsSynchronous(){
+		TapQueryPanel tapQueryPanel = (TapQueryPanel) tapTables.getComponent(0);
+		return String.valueOf(tapQueryPanel.isSynchronous());
+	}
+	
+	public String TapTablePanelgetQuery(){
+		TapQueryPanel tapQueryPanel = (TapQueryPanel) tapTables.getComponent(0);
+		return tapQueryPanel.getAdql();
+	}
+	
+	public String TapTablePanelgetMaxrec(){
+		TapQueryPanel tapQueryPanel = (TapQueryPanel) tapTables.getComponent(0);
+		return String.valueOf(tapQueryPanel.getMaxrec() == -1 ? 0 : tapQueryPanel.getMaxrec());
+	}
+	
+	public String TapTablePanelgetLang(){
+		TapQueryPanel tapQueryPanel = (TapQueryPanel) tapTables.getComponent(0);
+		return tapQueryPanel.getQueryLanguage();
 	}
 
 }
