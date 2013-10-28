@@ -50,6 +50,13 @@
 			<version>${project.version}</version>
 		</dependency>
 		
+		<!--  MyExperiment -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>perspective-myexperiment</artifactId>
+			<version>${project.version}</version>
+		</dependency> 
+		
 		<!-- Workbench runtime for testing from IDE, remove if not using TavernaWorkbenchWithExamplePlugin.main() -->
 		<dependency>
 			<groupId>net.sf.taverna.t2.taverna-workbench</groupId>
