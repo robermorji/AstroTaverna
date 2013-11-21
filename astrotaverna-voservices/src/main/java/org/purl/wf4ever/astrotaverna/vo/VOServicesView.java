@@ -296,13 +296,14 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		enterQueryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (((JTextField) tapQuery.getComponent(1)).getText() != null) {
-					TapTableLoadDialog tapTableLoadDialog = new TapTableLoadDialog();
-					String service_url = ((JTextField) tapQuery
-							.getComponent(1)).getText();
+					AstroTapTableLoadDialog astroTapTableLoadDialog = new AstroTapTableLoadDialog();
+					String service_url = ((JTextField) tapQuery.getComponent(1))
+							.getText();
 					// Internamente se hace una llamada asincrona, así pues será
 					// el resultado de la llamada
 					// La que dibuje las tablas en una lista
-					tapTableLoadDialog.setSelectedService(service_url, tapTables);
+					astroTapTableLoadDialog.setSelectedService(service_url,
+							tapTables);
 				}
 			}
 		});
@@ -312,9 +313,10 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	}
 	
 	protected Component makeTapTables() {
-		//TODO: Aqui insertar los componentes necesarios para mostrar las tablas y sus columnas
-		tapTables = new JPanel(new BorderLayout() );
-		
+		// TODO: Aqui insertar los componentes necesarios para mostrar las
+		// tablas y sus columnas
+		tapTables = new JPanel(new BorderLayout());
+
 		return tapTables;
 	}
 
@@ -620,12 +622,14 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	
 	public String TapTablePanelgetMaxrec(){
 		TapQueryPanel tapQueryPanel = (TapQueryPanel) tapTables.getComponent(0);
-		return String.valueOf(tapQueryPanel.getMaxrec() == -1 ? 0 : tapQueryPanel.getMaxrec());
+		return String
+				.valueOf(tapQueryPanel.getCapabilityPanel().getMaxrec() == -1 ? 0
+						: tapQueryPanel.getCapabilityPanel().getMaxrec());
 	}
 	
 	public String TapTablePanelgetLang(){
 		TapQueryPanel tapQueryPanel = (TapQueryPanel) tapTables.getComponent(0);
-		return tapQueryPanel.getQueryLanguage();
+		return tapQueryPanel.getCapabilityPanel().getQueryLanguage();
 	}
 
 }

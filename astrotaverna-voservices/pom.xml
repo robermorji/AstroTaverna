@@ -109,6 +109,11 @@
 			<artifactId>seqvista-hacked</artifactId>
 			<version>NO-VERSION</version>
 		</dependency>
+		<dependency>
+			<groupId>topcat</groupId>
+			<artifactId>topcat</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 
 </project>
