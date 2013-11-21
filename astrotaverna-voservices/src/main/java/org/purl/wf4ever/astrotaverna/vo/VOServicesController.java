@@ -168,7 +168,7 @@ public class VOServicesController {
 			Class<? extends Capability> searchType) {
 		VOServiceDescription serviceDescription = new VOServiceDescription();
 		for (Capability c : service.getCapability()) {			
-			if (searchType != null && !(searchType.isInstance(c))) {
+			if ((searchType != null && !(searchType.isInstance(c))) && !(searchType.getName().contains("TableAccess") && c.getStandardID().contains("TAP"))) {
 				continue;
 			}
 			for (Interface i : c.getInterface()) {

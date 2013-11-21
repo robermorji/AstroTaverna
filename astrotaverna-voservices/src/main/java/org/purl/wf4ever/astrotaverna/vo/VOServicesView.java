@@ -389,6 +389,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 						if (e.getValueIsAdjusting()) {
 							return;
 						}
+						tapTables.removeAll(); 
 						Service tableSelection = getTableSelection();
 						getController().selectService(tableSelection);
 					}
@@ -529,7 +530,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		} else {
 			Boolean visible = false;
 			for (Capability c : service.getCapability()) {
-				if (c instanceof TableAccess) {
+				if (c instanceof TableAccess || c.getStandardID().contains("TAP")) {
 					tapSearchTab.setVisible(Boolean.TRUE);
 					// Se obtiene la url del dato del servicio
 					// Y se coloca en el input de query
@@ -545,6 +546,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 						}
 					}
 					visible = true;
+					break;
 				}
 			}
 			if (!visible)

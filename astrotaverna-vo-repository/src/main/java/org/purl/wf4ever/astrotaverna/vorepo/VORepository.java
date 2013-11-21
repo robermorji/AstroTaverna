@@ -19,6 +19,7 @@ import net.ivoa.xml.adql.v1.StringType;
 import net.ivoa.xml.adql.v1.UnionSearchType;
 import net.ivoa.xml.adql.v1.WhereType;
 import net.ivoa.xml.registryinterface.v1.VOResources;
+import net.ivoa.xml.tapregext.v1.TableAccess;
 import net.ivoa.xml.voresource.v1.Capability;
 import net.ivoa.xml.voresource.v1.Resource;
 import net.ivoa.xml.voresource.v1.Service;
@@ -201,10 +202,14 @@ public class VORepository {
 			}
 			Service ser = (Service) res;
 			for (Capability c : ser.getCapability()) {
-				if (capabilityType.isInstance(c)) {
-					services.add(ser);
-					logger.debug("Found " + ser);
-					break;
+				try{
+					if (capabilityType.isInstance(c) || (capabilityType.getName().contains("TableAccess") && c.getStandardID().contains("TAP"))) {
+						services.add(ser);
+						logger.debug("Found " + ser);
+						break;
+					}
+				}catch(Exception ex){
+					System.out.println("Error");
 				}
 			}
 			logger.debug("Capability " + capabilityType.getSimpleName()
