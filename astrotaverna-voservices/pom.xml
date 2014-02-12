@@ -15,6 +15,11 @@
 			<name>Astrotaverna REPO</name>
 			<url>file://${project.basedir}/libs</url>
 		</repository>
+		<repository>
+			<id>repo-test-seqvista</id>
+			<name>Repo Test SeqVista</name>
+			<url>http://artifactory.fidesol.org:8080/lib-releases-local</url>
+		</repository>
 	</repositories>
 	<dependencies>
 		<dependency>

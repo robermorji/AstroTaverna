@@ -12,6 +12,7 @@ import net.ivoa.xml.adql.v1.WhereType;
 import net.ivoa.xml.conesearch.v1.ConeSearch;
 import net.ivoa.xml.sia.v1.SimpleImageAccess;
 import net.ivoa.xml.ssa.v0.SimpleSpectralAccess;
+import net.ivoa.xml.tapregext.v1.TableAccess;
 import net.ivoa.xml.voresource.v1.Capability;
 import net.ivoa.xml.voresource.v1.Resource;
 import net.ivoa.xml.voresource.v1.Service;
@@ -235,4 +236,10 @@ public class TestVORepository {
 						.getStatus());
 	}
 
+	@Test
+	public void defaultTableAccessSearch() throws Exception {
+		VORepository repo = new VORepository(URI.create("http://registry.euro-vo.org/services/RegistrySearch"));
+		List<Service> resources = repo.resourceSearch(TableAccess.class);
+		assertTrue(resources.size() > 20);
+	}
 }
