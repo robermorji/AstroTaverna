@@ -124,6 +124,11 @@
 			<artifactId>topcat</artifactId>
 			<version>4.0-1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.purl.wf4ever.astrotaverna</groupId>
+			<artifactId>perspective-myexperiment-astropack</artifactId>
+			<version>1.09-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 </project>
