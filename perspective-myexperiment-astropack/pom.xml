@@ -10,6 +10,8 @@
 	</parent>
 	<artifactId>perspective-myexperiment-astropack</artifactId>
 	<name>myExperiment perspective AstroPack</name>
+	
+	<!-- 
 	<repositories>
 		<repository>
 			<releases />
@@ -33,7 +35,7 @@
 		</repository>
 		
 	</repositories>
-
+  -->
 	<dependencies>
 		<dependency>
 			<groupId>net.sf.taverna.t2.ui-exts</groupId>

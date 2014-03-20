@@ -154,7 +154,7 @@
     <!-- <module>tap-search</module>-->
     
     <!--  Module myexperiment-->
-    <!-- <module>perspective-myexperiment-astropack</module> -->
+    <module>perspective-myexperiment-astropack</module>
   </modules>
   <scm>
   	<url>https://github.com/wf4ever/astrotaverna</url>

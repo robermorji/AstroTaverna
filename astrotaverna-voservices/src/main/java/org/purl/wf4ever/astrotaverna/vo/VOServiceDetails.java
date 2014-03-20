@@ -3,10 +3,6 @@ package org.purl.wf4ever.astrotaverna.vo;
 import java.text.SimpleDateFormat;
 
 
-
-
-
-
 import net.ivoa.xml.conesearch.v1.ConeSearch;
 import net.ivoa.xml.conesearch.v1.Query;
 import net.ivoa.xml.sia.v1.ImageSize;
