@@ -11,6 +11,7 @@ import net.ivoa.wsdl.registrysearch.v1.ResolveResponse;
 import net.ivoa.xml.adql.v1.AtomType;
 import net.ivoa.xml.adql.v1.ClosedSearchType;
 import net.ivoa.xml.adql.v1.ColumnReferenceType;
+import net.ivoa.xml.adql.v1.ComparisonPredType;
 import net.ivoa.xml.adql.v1.IntersectionSearchType;
 import net.ivoa.xml.adql.v1.LikePredType;
 import net.ivoa.xml.adql.v1.LiteralType;
@@ -18,7 +19,10 @@ import net.ivoa.xml.adql.v1.SearchType;
 import net.ivoa.xml.adql.v1.StringType;
 import net.ivoa.xml.adql.v1.UnionSearchType;
 import net.ivoa.xml.adql.v1.WhereType;
+import net.ivoa.xml.conesearch.v1.ConeSearch;
 import net.ivoa.xml.registryinterface.v1.VOResources;
+import net.ivoa.xml.sia.v1.SimpleImageAccess;
+import net.ivoa.xml.ssa.v0.SimpleSpectralAccess;
 import net.ivoa.xml.tapregext.v1.TableAccess;
 import net.ivoa.xml.voresource.v1.Capability;
 import net.ivoa.xml.voresource.v1.Resource;
@@ -41,6 +45,16 @@ public class VORepository {
 	private static final String DUMMY_SEARCH_WSDL = "/wsdl/dummySearch.wsdl";
 
 	private static final String CAPABILITY_XSI_TYPE = "capability/@xsi:type";
+	
+	private static final String CAPABILITY_STANDAR_ID_TYPE = "capability/@standardID";
+	
+	private static final String ADDRESS_CONECTION_SEARCH_TAB = "ivo://ivoa.net/std/TAP";
+	
+	private static final String ADDRESS_CONECTION_SEARCH_SIA = "ivo://ivoa.net/std/SIA";
+	
+	private static final String ADDRESS_CONECTION_SEARCH_CONE = "ivo://ivoa.net/std/ConeSearch";
+	
+	private static final String ADDRESS_CONECTION_SEARCH_SSA = "ivo://ivoa.net/std/SSA";
 
 	private static Logger logger = Logger.getLogger(VORepository.class);
 
@@ -154,7 +168,7 @@ public class VORepository {
 	}
 
 	public List<Service> resourceSearch(
-			Class<? extends Capability> capabilityType, String... keywords)
+			Class<? extends Capability> capabilityType,  String... keywords)
 			throws ErrorResp {
 		WhereType where = new WhereType();
 
@@ -164,10 +178,19 @@ public class VORepository {
 		// TODO: namespaced xsi:type lookup without using % trick?
 		// Use capability/@standardID == "ivo://ivoa.net/std/ConeSearch" etc
 		// instead?
-
+		logger.info("Literal xsiTypeValueLiteral: " + xsiTypeValueLiteral.toString());
+	
 		List<SearchType> and = new ArrayList<SearchType>();
-
-		and.add(makeLikeCondition(CAPABILITY_XSI_TYPE, xsiTypeValueLiteral));
+		//and.add(makeComparisonCondition(CAPABILITY_STANDAR_ID_TYPE,ADDRESS_CONECTION_SEARCH_TAB ));
+		if (xsiTypeValueLiteral.compareTo("%TableAccess")==0)
+			and.add(makeComparisonCondition(CAPABILITY_STANDAR_ID_TYPE,ADDRESS_CONECTION_SEARCH_TAB ));
+		if ( xsiTypeValueLiteral.compareTo("%ConeSearch")==0)
+			and.add(makeComparisonCondition(CAPABILITY_STANDAR_ID_TYPE,ADDRESS_CONECTION_SEARCH_CONE ));
+		if ( xsiTypeValueLiteral.compareTo("%SimpleImageAccess")==0)
+			and.add(makeComparisonCondition(CAPABILITY_STANDAR_ID_TYPE,ADDRESS_CONECTION_SEARCH_SIA ));
+		if ( xsiTypeValueLiteral.compareTo("%SimpleSpectralAccess")==0)
+			and.add(makeComparisonCondition(CAPABILITY_STANDAR_ID_TYPE,ADDRESS_CONECTION_SEARCH_SSA ));
+		//and.add(makeLikeCondition(CAPABILITY_XSI_TYPE, xsiTypeValueLiteral));*/
 
 		// This does not work for some reason
 		// and.add(makeLikeCondition("capability/interface/@xsi:type",
@@ -175,13 +198,18 @@ public class VORepository {
 
 		for (String kw : keywords) {
 			List<SearchType> or = new ArrayList<SearchType>();
-			for (String xpath : KEYWORD_XPATHS) {
-				// NOTE: If keywordXpaths.size() == 1 - don't use the
-				// intermediary or
-				or.add(makeLikeCondition(xpath, "%" + kw + "%"));
-			}
-			and.add(makeConditionSearchType(UnionSearchType.class, or));
+				if (kw.length()>0)
+				{
+					for (String xpath : KEYWORD_XPATHS) {
+						// NOTE: If keywordXpaths.size() == 1 - don't use the
+						// intermediary or
+						or.add(makeLikeCondition(xpath, "%" + kw + "%"));
+					}
+				}
+			if (!or.isEmpty())
+				and.add(makeConditionSearchType(UnionSearchType.class, or));
 		}
+		
 		where.setCondition(makeConditionSearchType(
 				IntersectionSearchType.class, and));
 
@@ -262,5 +290,30 @@ public class VORepository {
 		like.setPattern(pattern);
 		return like;
 	}
+	
+	protected ComparisonPredType makeComparisonCondition(String xpath, String literal ){
+		//ClosedSearchType closed = new ClosedSearchType();
+		ComparisonPredType comparison = new ComparisonPredType();
+		comparison.setComparison("=");
+		
+		
+		ColumnReferenceType typeArg = new ColumnReferenceType();
+		typeArg.setTable("");
+		typeArg.setName("@standardID");
+		typeArg.setXpathName(xpath);
+		
+		AtomType atomType = new AtomType();
+		StringType value = new StringType();
+		value.setValue(literal);
+		atomType.setLiteral(value);
+		
+		comparison.getArg().add(typeArg);
+		comparison.getArg().add(atomType);
+		
+		//closed.setCondition(comparison);
+		
+		return comparison;
+	}
+	
 
 }
