@@ -1,13 +1,13 @@
 package org.purl.wf4ever.astrotaverna.vo;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JPanel;
 import javax.swing.JComponent;
 import javax.swing.event.CaretListener;
-
 
 import uk.ac.starlink.vo.TapTableLoadDialog;
 import uk.ac.starlink.vo.TapQueryPanel;
@@ -73,8 +73,15 @@ public class AstroTapTableLoadDialog extends TapTableLoadDialog {
             /* Install ready for use. */
             tqPanel_.getAdqlPanel().addCaretListener( adqlListener_ );
             tqContainer_.add( tqPanel_, BorderLayout.CENTER );
+            
         }
-//        updateReady();
+      // updateReady();
+       tqContainer_.revalidate();
+       tqContainer_.repaint();
     }	
+    
+    public Component getConmponent(){
+    	return tqContainer_;
+    }
 	
 }

@@ -1,6 +1,7 @@
 package org.purl.wf4ever.astrotaverna.vo;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -151,7 +152,8 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	private JTabbedPane tapSearchTab;
 	private JPanel tapQuery;
 	private JPanel tapTables;
-
+	private JPanel contenedorPrincipal;
+	
 	private JTable resultsTable;
 
 	private DefaultTableModel resultsTableModel;
@@ -250,9 +252,10 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 
 		gbc.gridx = 0;
 		gbc.gridy = 2;
+		
 		add(makeTapSearchTab(), gbc);
 		tapSearchTab.setVisible(Boolean.FALSE);
-
+		tapSearchTab.getPreferredSize();
 		getController().checkEndpoint();
 		updateDetails();
 		updateServices();
@@ -261,21 +264,26 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	protected Component makeTapSearchTab() {
 		/* Prepare a tabbed panel to contain the components. */
 		tapSearchTab = new JTabbedPane();
+		//tapSearchTab.set
 		tapSearchTab.addTab("Service", makeTapSearch() );
-		tapSearchTab.addTab("Enter Query", makeTapTables() );
-       
+		       
         return tapSearchTab;
     }
-
+	// TODO:
+	
 	protected Component makeTapSearch() {
+		
+		contenedorPrincipal = new JPanel ( new BorderLayout());
+		tapTables = new JPanel(new BorderLayout());
 		tapQuery = new JPanel(new GridBagLayout());
+		
 		GridBagConstraints gbcUp = new GridBagConstraints();
 		GridBagConstraints gbcDown = new GridBagConstraints();
 		gbcUp.gridx = 0;
 		gbcUp.gridy = 0;
 		gbcUp.anchor = GridBagConstraints.CENTER;
 		gbcUp.fill = GridBagConstraints.BOTH;
-		tapQuery.add(new JLabel("Query:"), gbcUp);
+		tapQuery.add(new JLabel("TAP QUERY:"), gbcUp);
 
 		gbcDown.anchor = GridBagConstraints.WEST;
 		gbcDown.fill = GridBagConstraints.HORIZONTAL;
@@ -288,28 +296,13 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		gbcDown.anchor = GridBagConstraints.SOUTH;
 		gbcDown.fill = GridBagConstraints.RELATIVE;
 		gbcDown.gridx = 0;
-		gbcDown.gridy = 0;
+		gbcDown.gridy = 3;
 		gbcDown.weightx = 0.0;
 		gbcDown.weighty = 1.0;
 
-		JButton enterQueryButton = new JButton("Enter Query");
-		enterQueryButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (((JTextField) tapQuery.getComponent(1)).getText() != null) {
-					AstroTapTableLoadDialog astroTapTableLoadDialog = new AstroTapTableLoadDialog();
-					String service_url = ((JTextField) tapQuery.getComponent(1))
-							.getText();
-					// Internamente se hace una llamada asincrona, así pues será
-					// el resultado de la llamada
-					// La que dibuje las tablas en una lista
-					astroTapTableLoadDialog.setSelectedService(service_url,
-							tapTables);
-				}
-			}
-		});
-		tapQuery.add(enterQueryButton, gbcDown);
-
-		return tapQuery;
+		contenedorPrincipal.add(tapQuery,BorderLayout.NORTH);
+		contenedorPrincipal.add(tapTables,BorderLayout.CENTER);
+		return  contenedorPrincipal;
 	}
 	
 	protected Component makeTapTables() {
@@ -393,6 +386,18 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 						}
 						tapTables.removeAll(); 
 						Service tableSelection = getTableSelection();
+						// TODO:
+						if (((JTextField) tapQuery.getComponent(1)).getText() != null) {
+							AstroTapTableLoadDialog astroTapTableLoadDialog = new AstroTapTableLoadDialog();
+							String service_url = ((JTextField) tapQuery.getComponent(1))
+									.getText();
+							// Internamente se hace una llamada asincrona, así pues será
+							// el resultado de la llamada
+							// La que dibuje las tablas en una lista
+							astroTapTableLoadDialog.setSelectedService(service_url,
+									tapTables);
+						}
+						
 						getController().selectService(tableSelection);
 					}
 				});
@@ -424,7 +429,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 
 		searchBox.add(new JLabel("Keywords:"), gbcLeft);
 		keywords = new JTextField(40);
-		keywords.setAction(coneSearch);
+		keywords.setAction(null);
 		searchBox.add(keywords, gbcMiddle);
 
 		gbcRight.gridx = 1;
@@ -521,6 +526,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		status.setText(String.format(
 				"<html><body>Searching for %s: <b>%s</b> ...</body></html>",
 				searchType.getSimpleName(), search));
+		
 	}
 
 	protected void updateDetails() {

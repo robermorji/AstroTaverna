@@ -23,6 +23,7 @@ public class VOServicesPerspective extends AbstractPerspective implements
 	static boolean launched = false;
 
 	
+	
 	public static class PerspectiveCheckerThread extends Thread {
 		private Logger logger = Logger.getLogger(MyExperimentPerspective.class);
 		@Override
