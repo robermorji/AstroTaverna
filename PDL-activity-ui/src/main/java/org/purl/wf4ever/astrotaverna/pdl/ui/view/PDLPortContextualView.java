@@ -56,8 +56,8 @@ public class PDLPortContextualView extends ContextualView {
 				paramDesc += "UCD: "+ param.getUCD()+"\n";
 			if(param.getUType()!=null)
 				paramDesc += "UType: "+ param.getUType()+"\n";
-			if(param.getSkossConcept()!=null)
-				paramDesc += "SKOS: " + param.getSkossConcept()+"\n";
+			if(param.getSkosConcept()!=null)
+				paramDesc += "SKOS: " + param.getSkosConcept()+"\n";
 			if(param.getUnit()!=null)
 				paramDesc += "Unit: " + param.getUnit();
 
@@ -98,8 +98,8 @@ public class PDLPortContextualView extends ContextualView {
 				paramDesc += "UCD: "+ param.getUCD()+"\n";
 			if(param.getUType()!=null)
 				paramDesc += "UType: "+ param.getUType()+"\n";
-			if(param.getSkossConcept()!=null)
-				paramDesc += "SKOS: " + param.getSkossConcept()+"\n";
+			if(param.getSkosConcept()!=null)
+				paramDesc += "SKOS: " + param.getSkosConcept()+"\n";
 			if(param.getUnit()!=null)
 				paramDesc += "Unit: " + param.getUnit();
 		}

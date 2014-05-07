@@ -270,7 +270,7 @@ public class ValidationPDLClientActivity extends
 										// put every input in the Mapper
 										List<GeneralParameter> generalParamList = new ArrayList<GeneralParameter>();
 										GeneralParameter gp = new GeneralParameter(value, 
-												param.getParameterType().toString(), param.getName(),
+												param.getParameterType(), param.getName(),
 												new GeneralParameterVisitor());
 										generalParamList.add(gp);
 										
@@ -289,7 +289,7 @@ public class ValidationPDLClientActivity extends
 											// put every input in the Mapper
 											
 											GeneralParameter gp = new GeneralParameter(value, 
-													param.getParameterType().toString(), param.getName(),
+													param.getParameterType(), param.getName(),
 													new GeneralParameterVisitor());
 											generalParamList.add(gp);
 										}

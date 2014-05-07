@@ -3,8 +3,8 @@
 	<parent>
 		<groupId>org.purl.wf4ever.astrotaverna</groupId>
 		<artifactId>astrotaverna</artifactId>
-		<version>1.09-SNAPSHOT</version>
-		<relativePath>..</relativePath>
+		<version>1.11-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>astrotaverna-workbench-test</artifactId>
 	<dependencies>
@@ -50,13 +50,15 @@
 			<version>${project.version}</version>
 		</dependency>
 		
+
 		<!--  MyExperiment -->
-		<!-- <dependency>
+		 <dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>perspective-myexperiment-astropack</artifactId>
 			<version>${project.version}</version>
 		</dependency> 
-		 -->
+		 
+
 		<!-- Workbench runtime for testing from IDE, remove if not using TavernaWorkbenchWithExamplePlugin.main() -->
 		<dependency>
 			<groupId>net.sf.taverna.t2.taverna-workbench</groupId>
@@ -145,12 +147,13 @@
 					<groupId>net.sf.taverna.t2.ui-exts</groupId>
 					<artifactId>perspective-biocatalogue</artifactId>
 				</exclusion>
-				<!-- 
-				<exclusion>
+
+			 	<exclusion>
 					<groupId>net.sf.taverna.t2.ui-exts</groupId>
 					<artifactId>perspective-myexperiment</artifactId>
 				</exclusion>
-				 --> 
+			
+
 				<!-- Taverna use a different version than pdl-param, exclusion in test workbench to avoid conflict -->
 				<!-- Comment slf4j-api for removing PDL.  Uncomment if PDL is again in astrotaverna to avoid conflicts-->
 				
@@ -174,6 +177,14 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+	      <id>apache.snapshots</id>
+	      <name>Apache Snapshot Repository</name>
+	      <url>http://repository.apache.org/snapshots</url>
+	      <releases>
+	        <enabled>false</enabled>
+	      </releases>
+	    </repository>
 	</repositories>
 
 	<name>Astro Taverna Workbench test environment</name>

@@ -15,6 +15,14 @@ import org.apache.log4j.*;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+
+import net.ivoa.parameter.model.ConditionalStatement;
+import net.ivoa.parameter.model.ConstraintOnGroup;
+import net.ivoa.parameter.model.ParameterDependency;
+import net.ivoa.parameter.model.ParameterGroup;
+import net.ivoa.parameter.model.ParameterReference;
+import net.ivoa.parameter.model.Service;
+
 import net.ivoa.parameter.model.SingleParameter;
 import net.ivoa.pdl.interpreter.groupInterpreter.GroupProcessor;
 import net.ivoa.pdl.interpreter.utilities.Utilities;
@@ -29,14 +37,6 @@ import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivityCa
 import org.xml.sax.SAXException;
 //comment from terminal
 //import uk.ac.starlink.ttools.Stilts;
-
-
-
-
-
-
-
-
 
 import uk.ac.starlink.table.ColumnInfo;
 import uk.ac.starlink.table.RowSequence;
@@ -301,22 +301,24 @@ public class PDLServiceActivity extends
 			 */
 			public boolean areMandatoryInputsNotNull(){                  
 				boolean validStatus = true;
-            
+				List<SingleParameter> paramsList;
 				try{
 //					List<GroupHandlerHelper> groupsHandler = gp.getGroupsHandler();
 //					for(GroupHandlerHelper ghh : groupsHandler){
 //						List<SingleParameter> paramsList = ghh.getSingleParamIntoThisGroup();
-					List<SingleParameter> paramsList = pdlcontroller.getSingleParametersOnGroups();
+					paramsList = pdlcontroller.getSingleParametersOnGroups();
 					for(SingleParameter param: paramsList){
 						if(inputs.get(param.getName())==null)
-							//if no dependency defined --> false
+							//if no dependency defined --> true
 							//if no optional --> false
-							if(!(param.getDependency()!=null && param.getDependency().compareTo("optional")==0))
+							if(param.getDependency()!=null && param.getDependency().value().compareTo(ParameterDependency.REQUIRED.toString())==0)
 								validStatus = false; 
 						
 					}
 //					}
-				}catch(Exception ex){validStatus = false;}
+				}catch(Exception ex){
+					validStatus = false;
+				}
 				return validStatus;
 			}
 			
@@ -685,7 +687,7 @@ public class PDLServiceActivity extends
 										//process votable
 										
 										//hacer que coja las columnas de turno de la votable. . 
-										//por ejemplo, con una funci�n que que reciba una lista de nombres de columna y devuelva un 
+										//por ejemplo, con una funcion que que reciba una lista de nombres de columna y devuelva un 
 										//hashmap de arrayList (par, nombre-columna y lista de valores"
 										try{
 											HashMap<String, ArrayList> columnsMap = getSelectedColumns(table, outputPDLParamMap);
@@ -792,7 +794,6 @@ public class PDLServiceActivity extends
 		return this.restrictionsOnGroups;
 	}
 
-//<<<<<<< HEAD
 	public StarTable loadVOTable( File source ) throws IOException {
 	    return new StarTableFactory().makeStarTable( source.toString(), "votable" );
 	}
@@ -865,7 +866,7 @@ public class PDLServiceActivity extends
 		
 		return columnMap;
 	}
-//=======
+
 	@Override
 	public SingleParameter getSingleParameterForOutputPort(String portName)
 			throws IOException {
@@ -962,6 +963,5 @@ public class PDLServiceActivity extends
 		
 	}
 
-//>>>>>>> interoperability
 	
 }

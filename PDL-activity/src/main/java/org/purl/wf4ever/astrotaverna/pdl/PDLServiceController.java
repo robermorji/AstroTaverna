@@ -329,7 +329,13 @@ public class PDLServiceController {
 		
 		for(GroupHandlerHelper ghh : groupsHandler){
 			List<SingleParameter> paramsListOnGroup = ghh.getSingleParamIntoThisGroup();
-			paramsList.addAll(paramsListOnGroup);
+			if(paramsListOnGroup != null){
+				for (SingleParameter parameter: paramsListOnGroup){
+					if(!paramsList.contains(parameter))
+						paramsList.add(parameter);
+				}
+			}
+			//paramsList.addAll(paramsListOnGroup);
 		}
 		
 		return paramsList;
@@ -423,7 +429,7 @@ public class PDLServiceController {
 							// put every input in the Mapper
 							List<GeneralParameter> generalParamList = new ArrayList<GeneralParameter>();
 							GeneralParameter gparam = new GeneralParameter(value, 
-									param.getParameterType().toString(), param.getName(),
+									param.getParameterType(), param.getName(),
 									new GeneralParameterVisitor());
 							generalParamList.add(gparam);
 							
@@ -443,7 +449,7 @@ public class PDLServiceController {
 								// put every input in the Mapper
 								
 								GeneralParameter gparam = new GeneralParameter(value, 
-										param.getParameterType().toString(), param.getName(),
+										param.getParameterType(), param.getName(),
 										new GeneralParameterVisitor());
 								generalParamList.add(gparam);
 							}

@@ -14,6 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.purl.wf4ever.astrotaverna.utils.MyUtils;
+import org.purl.wf4ever.astrotaverna.voutils.TestUtils;
 
 /**
  * 
@@ -213,10 +214,7 @@ public class SelectRowsActivityTest {
 		String a = new String(resultSelectRows.toCharArray());
 		String b = new String(((String)outputs.get(OUT_SIMPLE_OUTPUT)).toCharArray());
 		
-		a = a.replace("\n", "").replace("\t", "").replace(" ", "").replace(System.getProperty("line.separator"), "");
-		b = b.replace("\n", "").replace("\t", "").replace(" ", "").replace(System.getProperty("line.separator"), "");
-		
-		assertTrue("Wrong output : ", (a.length()>b.length()-6) && (a.length()<b.length()+6));
+                TestUtils.compareStringLengthsIgnoreWhiteSpace(a, b, 17);
 		assertEquals("simple-report", outputs.get(OUT_REPORT));
 		
 		//assertEquals(Arrays.asList("Value 1", "Value 2"), outputs
@@ -251,10 +249,7 @@ public class SelectRowsActivityTest {
 		String a = new String(resultSelectRows.toCharArray());
 		String b = new String(((String)outputs.get(OUT_SIMPLE_OUTPUT)).toCharArray());
 		
-		a = a.replace("\n", "").replace("\t", "").replace(" ", "").replace(System.getProperty("line.separator"), "");
-		b = b.replace("\n", "").replace("\t", "").replace(" ", "").replace(System.getProperty("line.separator"), "");
-		
-		assertTrue("Wrong output : ", (a.length()>b.length()-6) && (a.length()<b.length()+6));
+                TestUtils.compareStringLengthsIgnoreWhiteSpace(a, b, 17);
 		assertEquals("simple-report", outputs.get(OUT_REPORT));
 		
 		//assertEquals(Arrays.asList("Value 1", "Value 2"), outputs
@@ -289,10 +284,7 @@ public class SelectRowsActivityTest {
 		String a = new String(resultSelectRows.toCharArray());
 		String b = new String(((String)outputs.get(OUT_SIMPLE_OUTPUT)).toCharArray());
 		
-		a = a.replace("\n", "").replace("\t", "").replace(" ", "").replace(System.getProperty("line.separator"), "");
-		b = b.replace("\n", "").replace("\t", "").replace(" ", "").replace(System.getProperty("line.separator"), "");
-		
-		assertTrue("Wrong output : ", (a.length()>b.length()-6) && (a.length()<b.length()+6));
+                TestUtils.compareStringLengthsIgnoreWhiteSpace(a, b, 17);
 		assertEquals("simple-report", outputs.get(OUT_REPORT));
 		
 		//assertEquals(Arrays.asList("Value 1", "Value 2"), outputs
@@ -328,10 +320,7 @@ public class SelectRowsActivityTest {
 		String a = new String(resultSelectRows.toCharArray());
 		String b = new String(((String)outputs.get(OUT_SIMPLE_OUTPUT)).toCharArray());
 		
-		a = a.replace("\n", "").replace("\t", "").replace(" ", "").replace(System.getProperty("line.separator"), "");
-		b = b.replace("\n", "").replace("\t", "").replace(" ", "").replace(System.getProperty("line.separator"), "");
-		
-		assertTrue("Wrong output : ", (a.length()>b.length()-6) && (a.length()<b.length()+6));
+                TestUtils.compareStringLengthsIgnoreWhiteSpace(a, b, 6);
 		assertEquals("simple-report", outputs.get(OUT_REPORT));
 		
 		//assertEquals(Arrays.asList("Value 1", "Value 2"), outputs
@@ -365,10 +354,7 @@ public class SelectRowsActivityTest {
 		String a = new String(resultSelectRows.toCharArray());
 		String b = new String(((String)outputs.get(OUT_SIMPLE_OUTPUT)).toCharArray());
 		
-		a = a.replace("\n", "").replace("\t", "").replace(" ", "").replace(System.getProperty("line.separator"), "");
-		b = b.replace("\n", "").replace("\t", "").replace(" ", "").replace(System.getProperty("line.separator"), "");
-		
-		assertTrue("Wrong output : ", (a.length()>b.length()-6) && (a.length()<b.length()+6));
+                TestUtils.compareStringLengthsIgnoreWhiteSpace(a, b, 6);
 		assertEquals("simple-report", outputs.get(OUT_REPORT));
 		
 		//assertEquals(Arrays.asList("Value 1", "Value 2"), outputs

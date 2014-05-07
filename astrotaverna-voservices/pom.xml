@@ -5,12 +5,23 @@
 	<parent>
 		<groupId>org.purl.wf4ever.astrotaverna</groupId>
 		<artifactId>astrotaverna</artifactId>
-		<version>1.09-SNAPSHOT</version>
+		<version>1.11-SNAPSHOT</version>
 	</parent>
 	<artifactId>astrotaverna-voservices</artifactId>
 	<name>Astro Taverna VO services perspective</name>
-	<!--	
+	
+		
 	<repositories>
+		<repository>
+	      <id>apache.snapshots</id>
+	      <name>Apache Snapshot Repository</name>
+	      <url>http://repository.apache.org/snapshots</url>
+	      <releases>
+	        <enabled>false</enabled>
+	      </releases>
+	    </repository>
+	 </repositories>
+	    <!-- 
 		<repository>
 			<id>in-project</id>
 			<name>Astrotaverna REPO</name>
@@ -22,8 +33,9 @@
 			<name>Repo Test SeqVista</name>
 			<url>http://artifactory.fidesol.org:8080/lib-releases-local</url>
 		</repository>
-	</repositories>
-	-->
+		-->
+	
+	
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
