@@ -4,6 +4,7 @@ import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -66,10 +67,15 @@ public class VORepository {
 
 	// We'll do similar fields as Topcat - see
 	// http://www.ivoa.net/internal/IVOA/InterOpMay2010Reg/reg.pdf
+	//protected List<String> KEYWORD_XPATHS = Arrays.asList("title", "shortName",
+		//	"identifier", "content/subject", "content/description",
+		//	"content/type");
+	protected List<String> KEYWORD_NAMEPATH = Arrays.asList("title", "shortName",
+			"identifier", "subject", "publisher");
+	
 	protected List<String> KEYWORD_XPATHS = Arrays.asList("title", "shortName",
-			"identifier", "content/subject", "content/description",
-			"content/type");
-
+				"identifier", "content/subject", "curation/publisher");
+	
 	protected final static QName REGISTRYSEARCHSERVICE_QNAME = new QName(
 			"http://purl.org/wf4ever/astrotaverna/wsdl/RegistrySearch",
 			"RegistrySearchService");
@@ -195,7 +201,10 @@ public class VORepository {
 		// This does not work for some reason
 		// and.add(makeLikeCondition("capability/interface/@xsi:type",
 		// "%HTTP%"));
-
+// TODO:
+		
+		String name;
+		int index = 0;
 		for (String kw : keywords) {
 			List<SearchType> or = new ArrayList<SearchType>();
 				if (kw.length()>0)
@@ -203,7 +212,9 @@ public class VORepository {
 					for (String xpath : KEYWORD_XPATHS) {
 						// NOTE: If keywordXpaths.size() == 1 - don't use the
 						// intermediary or
-						or.add(makeLikeCondition(xpath, "%" + kw + "%"));
+						name = KEYWORD_NAMEPATH.get(index).toString();
+						or.add(makeLikeCondition(name, xpath, "%" + kw + "%"));
+						index ++;
 					}
 				}
 			if (!or.isEmpty())
@@ -275,11 +286,11 @@ public class VORepository {
 		return closed;
 	}
 
-	protected LikePredType makeLikeCondition(String xpath, String literal) {
+	protected LikePredType makeLikeCondition(String name, String xpath, String literal) {
 		LikePredType like = new LikePredType();
 		ColumnReferenceType typeArg = new ColumnReferenceType();
 		// TODO: Is this temp name really needed?
-		typeArg.setName("arg-" + UUID.randomUUID().toString());
+		typeArg.setName(name);
 		typeArg.setTable("");
 		typeArg.setXpathName(xpath);
 		like.setArg(typeArg);
@@ -292,6 +303,30 @@ public class VORepository {
 	}
 	
 	protected ComparisonPredType makeComparisonCondition(String xpath, String literal ){
+		//ClosedSearchType closed = new ClosedSearchType();
+		ComparisonPredType comparison = new ComparisonPredType();
+		comparison.setComparison("=");
+		
+		
+		ColumnReferenceType typeArg = new ColumnReferenceType();
+		typeArg.setTable("");
+		typeArg.setName("@standardID");
+		typeArg.setXpathName(xpath);
+		
+		AtomType atomType = new AtomType();
+		StringType value = new StringType();
+		value.setValue(literal);
+		atomType.setLiteral(value);
+		
+		comparison.getArg().add(typeArg);
+		comparison.getArg().add(atomType);
+		
+		//closed.setCondition(comparison);
+		
+		return comparison;
+	}
+	
+	protected ComparisonPredType makeComparisonSearchCondition(String column, String xpath, String literal ){
 		//ClosedSearchType closed = new ClosedSearchType();
 		ComparisonPredType comparison = new ComparisonPredType();
 		comparison.setComparison("=");

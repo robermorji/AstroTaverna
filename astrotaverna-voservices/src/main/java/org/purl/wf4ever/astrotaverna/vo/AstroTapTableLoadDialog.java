@@ -62,7 +62,7 @@ public class AstroTapTableLoadDialog extends TapTableLoadDialog {
              * if we haven't seen this service URL before now. */
             if ( ! tqMap_.containsKey( serviceUrl ) ) {
                 TapQueryPanel tqPanel = createTapQueryPanel();
-                tqPanel.setServiceHeading( "" );
+                tqPanel.setServiceHeading( serviceUrl );
                 tqPanel.setServiceUrl( serviceUrl );
                 tqMap_.put( serviceUrl, tqPanel );
             }
@@ -76,8 +76,9 @@ public class AstroTapTableLoadDialog extends TapTableLoadDialog {
             
         }
       // updateReady();
-       tqContainer_.revalidate();
-       tqContainer_.repaint();
+       
+      // tqContainer_.repaint();
+      //tqContainer_.revalidate();
     }	
     
     public Component getConmponent(){

@@ -3,6 +3,7 @@ package org.purl.wf4ever.astrotaverna.vo;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -61,6 +62,8 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 			getController().changeEndpoint((String) combo.getSelectedItem());
 		}
 	}
+	
+	
 
 	public class AddToWorkflow extends AbstractAction {
 		private static final long serialVersionUID = 1L;
@@ -145,11 +148,12 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	private VOServicesController controller;
 	private JTextField keywords;
 	private VOServicesModel model;
-
+	
+	private JSplitPane ventanaCompleta;
 	private JComboBox registry;
 	private JSplitPane results;
 	private JPanel resultsDetails;
-	private JTabbedPane tapSearchTab;
+	private JPanel tapSearchTab;
 	private JPanel tapQuery;
 	private JPanel tapTables;
 	private JPanel contenedorPrincipal;
@@ -226,47 +230,70 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 
 	protected void initialize() {
 		removeAll();
-		setLayout(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-
-		gbc.gridwidth = 3;
-		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-		add(makeSearchBox(), gbc);
-		gbc.weightx = 1.0;
-		gbc.weighty = 0.0;
-		gbc.fill = GridBagConstraints.BOTH;
-
-		gbc.weighty = 1.0;
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.gridwidth = 2;
-		add(makeResults(), gbc);
-
-		gbc.gridx = 2;
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.gridwidth = 1;
-		gbc.weightx = 0.66;
-		gbc.weighty = 1.0;
-
-		gbc.gridx = 0;
-		gbc.gridy = 2;
 		
-		add(makeTapSearchTab(), gbc);
+		JPanel panelSuperior = new JPanel( new BorderLayout());
+		JPanel panelInferior = new JPanel(new BorderLayout());
+		
+		
+		//split.setLayout(new GridBagLayout());
+		//ventanaCompleta = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		
+		
+		//Dimension minimumSize = new Dimension(100, 50);
+	    //panelSuperior.setMinimumSize(minimumSize);
+	    //panelInferior.setMinimumSize(minimumSize);
+		
+	    
+		
+		setLayout(new BorderLayout());
+		
+//		GridBagConstraints gbc = new GridBagConstraints();
+//		gbc.gridx = 0;
+//		gbc.gridy = 0;
+//
+//		gbc.gridwidth = 3;
+//		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		panelSuperior.add(makeSearchBox(), BorderLayout.NORTH);
+//		gbc.weightx = 1.0;
+//		gbc.weighty = 0.0;
+//		gbc.fill = GridBagConstraints.BOTH;
+//
+//		gbc.weighty = 1.0;
+//		gbc.gridx = 0;
+//		gbc.gridy = 1;
+//		gbc.gridwidth = 2;
+		panelSuperior.add(makeResults(),BorderLayout.CENTER );
+
+//		gbc.gridx = 2;
+//		gbc.fill = GridBagConstraints.BOTH;
+//		gbc.gridwidth = 1;
+//		gbc.weightx = 0.66;
+//		gbc.weighty = 1.0;
+//
+//		gbc.gridx = 0;
+//		gbc.gridy = 2;
+		panelInferior.add(makeTapSearchTab(),BorderLayout.CENTER);
 		tapSearchTab.setVisible(Boolean.FALSE);
-		tapSearchTab.getPreferredSize();
+				
 		getController().checkEndpoint();
 		updateDetails();
 		updateServices();
+		
+		JSplitPane split = new JSplitPane(JSplitPane.VERTICAL_SPLIT,panelSuperior,panelInferior);
+		split.setOneTouchExpandable(true);
+		split.setDividerLocation(0.50);
+		//split.setLayout(new GridBagLayout());
+		this.add(split, BorderLayout.CENTER);
+		
 	}
 
 	protected Component makeTapSearchTab() {
 		/* Prepare a tabbed panel to contain the components. */
-		tapSearchTab = new JTabbedPane();
+		tapSearchTab = new JPanel(new BorderLayout());
+		
 		//tapSearchTab.set
-		tapSearchTab.addTab("Service", makeTapSearch() );
-		       
+		tapSearchTab.add(makeTapSearch(), BorderLayout.CENTER);
+		
         return tapSearchTab;
     }
 	// TODO:
@@ -376,16 +403,20 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 
 		resultsTable.getSelectionModel().setSelectionMode(
 				ListSelectionModel.SINGLE_SELECTION);
-
+		
+		
+		
 		resultsTable.getSelectionModel().addListSelectionListener(
 				new ListSelectionListener() {
+					
+					
 					@Override
 					public void valueChanged(ListSelectionEvent e) {
-						if (e.getValueIsAdjusting()) {
-							return;
-						}
+						
+						Service tableSelection;
+						
 						tapTables.removeAll(); 
-						Service tableSelection = getTableSelection();
+						tableSelection = getTableSelection();
 						// TODO:
 						if (((JTextField) tapQuery.getComponent(1)).getText() != null) {
 							AstroTapTableLoadDialog astroTapTableLoadDialog = new AstroTapTableLoadDialog();
@@ -396,6 +427,8 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 							// La que dibuje las tablas en una lista
 							astroTapTableLoadDialog.setSelectedService(service_url,
 									tapTables);
+							tapTables.revalidate();
+							tapTables.repaint();
 						}
 						
 						getController().selectService(tableSelection);
