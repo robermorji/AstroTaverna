@@ -144,11 +144,11 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	private static final int RESOURCE_COLUMN = 0;
 	private static final long serialVersionUID = 1L;
 	// Actions
-	private ConeSearchAction coneSearch = new ConeSearchAction();
+	
 	private VOServicesController controller;
 	private JTextField keywords;
 	private VOServicesModel model;
-	
+	private JTextField url_query;
 	private JSplitPane ventanaCompleta;
 	private JComboBox registry;
 	private JSplitPane results;
@@ -163,6 +163,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	private DefaultTableModel resultsTableModel;
 
 	private SIASearchAction siaSearchAction = new SIASearchAction();
+	private ConeSearchAction coneSearch = new ConeSearchAction();
 	// private SLASearchAction slaSearchAction = new SLASearchAction();
 	private SSASearchAction ssaSearchAction = new SSASearchAction();
 	private TAPSearchAction tapSearchAction = new TAPSearchAction();
@@ -233,18 +234,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		
 		JPanel panelSuperior = new JPanel( new BorderLayout());
 		JPanel panelInferior = new JPanel(new BorderLayout());
-		
-		
-		//split.setLayout(new GridBagLayout());
-		//ventanaCompleta = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
-		
-		
-		//Dimension minimumSize = new Dimension(100, 50);
-	    //panelSuperior.setMinimumSize(minimumSize);
-	    //panelInferior.setMinimumSize(minimumSize);
-		
-	    
-		
+				
 		setLayout(new BorderLayout());
 		
 //		GridBagConstraints gbc = new GridBagConstraints();
@@ -360,6 +350,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	}
 
 	protected Component makeResultsDetails() {
+		JButton buttonAddWorkFlow;
 		resultsDetails = new JPanel(new GridBagLayout());
 		resultsDetails.removeAll();
 
@@ -377,9 +368,12 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		gbc.weighty = 0.0;
 		JPanel buttonPanel = new JPanel();
 		addToWorkflow = new AddToWorkflow();
-		buttonPanel.add(new JButton(addToWorkflow), gbc);
+		buttonAddWorkFlow = new JButton(addToWorkflow);
+		buttonPanel.add(buttonAddWorkFlow, gbc);
+		
+		
 		resultsDetails.add(buttonPanel, gbc);
-
+		
 		// gbc.weighty = 0.1;
 		// JPanel filler = new JPanel();
 		// resultsDetails.add(filler, gbc); // filler
@@ -414,7 +408,8 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 					public void valueChanged(ListSelectionEvent e) {
 						
 						Service tableSelection;
-						
+						resultsTable.revalidate();
+						resultsTable.repaint();
 						tapTables.removeAll(); 
 						tableSelection = getTableSelection();
 						// TODO:
@@ -427,10 +422,11 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 							// La que dibuje las tablas en una lista
 							astroTapTableLoadDialog.setSelectedService(service_url,
 									tapTables);
-							tapTables.revalidate();
-							tapTables.repaint();
+							//tapTables.revalidate();
+							//tapTables.repaint();
 						}
-						
+						tapTables.revalidate();
+						tapTables.repaint();
 						getController().selectService(tableSelection);
 					}
 				});
@@ -569,6 +565,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 			addToWorkflow.setEnabled(false);
 			return;
 		} else {
+			addToWorkflow.setEnabled(true);
 			Boolean visible = false;
 			for (Capability c : service.getCapability()) {
 				if (c instanceof TableAccess || c.getStandardID().contains("TAP")) {
@@ -593,7 +590,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 			if (!visible)
 				tapSearchTab.setVisible(Boolean.FALSE);
 		}
-		addToWorkflow.setEnabled(true);
+		//addToWorkflow.setEnabled(true);
 	}
 
 	public void updateSelection() {

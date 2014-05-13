@@ -9,10 +9,11 @@ import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesDegreeActivity;
 public class CoordinatesServiceIcon implements ActivityIconSPI {
 
 	private static Icon icon;
-
+	
 	public int canProvideIconScore(Activity<?> activity) {
 		if ((activity instanceof CoordinatesActivity)
 				|| (activity instanceof CoordinatesDegreeActivity)) {
+			JLabel etiqueta = new JLabel ("Run the current workflow");
 			return DEFAULT_ICON;
 		}
 		return NO_ICON;

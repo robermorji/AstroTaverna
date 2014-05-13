@@ -31,7 +31,8 @@ import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.RegistrySearchPortType;
  -Dcom.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump=true
  */
 public class TestVORepository {
-
+	
+	
 	@Ignore
 	@Test
 	public void coneSearch() throws Exception {
@@ -50,14 +51,25 @@ public class TestVORepository {
 		assertTrue("Could not find any ConeSearch", foundCapability);
 	}
 	
+		
 	@Ignore("Takes a very long time")	
 	@Test
 	public void searchEveryService() throws Exception {
+		 
+		ArrayList <String>  key_path = new ArrayList<String>();
+		key_path.add("title");
+		key_path.add("shortName");
+		key_path.add("identifier");
+		key_path.add("subject");
+		key_path.add("publisher");
+		
 		BigInteger HUNDRED = BigInteger.valueOf(100);
 		BigInteger ONE = BigInteger.valueOf(1);
 		VORepository repo = new VORepository();
 		WhereType where = new WhereType();
-		where.setCondition(repo.makeLikeCondition("capability/interface/@xsi:type", "%"));
+		
+		for (int indice=0; indice<key_path.size();indice++)
+			where.setCondition(repo.makeLikeCondition(key_path.get(indice),"capability/interface/@xsi:type", "%"));
 			// Perform search
 		List<Resource> resources = null;
 		BigInteger count = BigInteger.valueOf(0);
