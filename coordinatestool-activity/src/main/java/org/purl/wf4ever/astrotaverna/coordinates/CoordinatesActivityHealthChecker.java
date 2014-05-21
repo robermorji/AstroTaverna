@@ -3,6 +3,11 @@ package org.purl.wf4ever.astrotaverna.coordinates;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.sf.taverna.t2.visit.VisitReport;
+import net.sf.taverna.t2.visit.VisitReport.Status;
+import net.sf.taverna.t2.workflowmodel.health.HealthCheck;
+import net.sf.taverna.t2.workflowmodel.health.HealthChecker;
+
 /**
  * coordinates health checker
  * 

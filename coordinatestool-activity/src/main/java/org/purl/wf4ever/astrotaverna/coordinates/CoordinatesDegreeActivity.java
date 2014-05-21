@@ -1,7 +1,17 @@
 package org.purl.wf4ever.astrotaverna.coordinates;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import net.sf.taverna.t2.invocation.InvocationContext;
+import net.sf.taverna.t2.reference.ReferenceService;
+import net.sf.taverna.t2.reference.T2Reference;
+import net.sf.taverna.t2.workflowmodel.processor.activity.AbstractAsynchronousActivity;
+import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
+import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivity;
+import net.sf.taverna.t2.workflowmodel.processor.activity.AsynchronousActivityCallback;
 
 public class CoordinatesDegreeActivity extends
 		AbstractAsynchronousActivity<CoordinatesActivityConfigurationBean>

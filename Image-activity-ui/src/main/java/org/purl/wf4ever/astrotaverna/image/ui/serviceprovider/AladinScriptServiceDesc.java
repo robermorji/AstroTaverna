@@ -1,15 +1,16 @@
 package org.purl.wf4ever.astrotaverna.image.ui.serviceprovider;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.Icon;
 
-import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
-import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
-
 import org.purl.wf4ever.astrotaverna.aladin.AladinScriptActivity;
 import org.purl.wf4ever.astrotaverna.aladin.AladinScriptActivityConfigurationBean;
+
+import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
+import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
 
 
 public class AladinScriptServiceDesc extends ServiceDescription<AladinScriptActivityConfigurationBean> {

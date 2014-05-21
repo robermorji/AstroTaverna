@@ -1,10 +1,13 @@
 package org.purl.wf4ever.astrotaverna.query.ui.serviceprovider;
 
 import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.Icon;
+
+
 
 import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
 import net.sf.taverna.t2.servicedescriptions.ServiceDescriptionProvider;

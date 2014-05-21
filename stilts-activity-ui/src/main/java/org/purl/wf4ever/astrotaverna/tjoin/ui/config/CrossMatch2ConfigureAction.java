@@ -3,11 +3,11 @@ package org.purl.wf4ever.astrotaverna.tjoin.ui.config;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 
-import net.sf.taverna.t2.workbench.ui.actions.activity.ActivityConfigurationAction;
-import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationDialog;
-
 import org.purl.wf4ever.astrotaverna.tjoin.CrossMatch2Activity;
 import org.purl.wf4ever.astrotaverna.tjoin.CrossMatch2ActivityConfigurationBean;
+
+import net.sf.taverna.t2.workbench.ui.actions.activity.ActivityConfigurationAction;
+import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationDialog;
 
 
 @SuppressWarnings("serial")

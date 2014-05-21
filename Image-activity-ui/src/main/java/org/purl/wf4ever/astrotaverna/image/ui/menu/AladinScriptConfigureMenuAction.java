@@ -2,10 +2,10 @@ package org.purl.wf4ever.astrotaverna.image.ui.menu;
 
 import javax.swing.Action;
 
-import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
-
 import org.purl.wf4ever.astrotaverna.aladin.AladinScriptActivity;
 import org.purl.wf4ever.astrotaverna.image.ui.config.AladinScriptConfigureAction;
+
+import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
 
 
 public class AladinScriptConfigureMenuAction extends

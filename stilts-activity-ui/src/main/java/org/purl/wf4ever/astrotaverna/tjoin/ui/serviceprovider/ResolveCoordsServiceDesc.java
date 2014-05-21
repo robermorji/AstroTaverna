@@ -1,5 +1,6 @@
 package org.purl.wf4ever.astrotaverna.tjoin.ui.serviceprovider;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 

@@ -2,10 +2,10 @@ package org.purl.wf4ever.astrotaverna.tjoin.ui.menu;
 
 import javax.swing.Action;
 
-import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
-
 import org.purl.wf4ever.astrotaverna.tjoin.ui.config.AddCommonRowToVOTableConfigureAction;
 import org.purl.wf4ever.astrotaverna.voutils.AddCommonRowToVOTableActivity;
+
+import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
 
 
 public class AddCommonRowToVOTableConfigureMenuAction extends

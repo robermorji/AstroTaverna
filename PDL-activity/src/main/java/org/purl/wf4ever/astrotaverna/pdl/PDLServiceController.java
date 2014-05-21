@@ -11,6 +11,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
 import net.ivoa.parameter.model.ConditionalStatement;
 import net.ivoa.parameter.model.ConstraintOnGroup;
 import net.ivoa.parameter.model.ParameterGroup;
@@ -23,16 +27,17 @@ import net.ivoa.pdl.interpreter.groupInterpreter.GroupHandlerHelper;
 import net.ivoa.pdl.interpreter.groupInterpreter.GroupProcessor;
 import net.ivoa.pdl.interpreter.utilities.UserMapper;
 import net.ivoa.pdl.interpreter.utilities.Utilities;
+import net.sf.taverna.t2.invocation.InvocationContext;
+import net.sf.taverna.t2.reference.ReferenceService;
+import net.sf.taverna.t2.reference.T2Reference;
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
 
-import org.apache.log4j.*;
+import org.apache.log4j.Logger;
 
 import visitors.GeneralParameterVisitor;
 import CommonsObjects.GeneralParameter;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivityConfigurationBean;
 
 public class PDLServiceController {
 	

@@ -6,6 +6,9 @@ import java.awt.event.ActionEvent;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesActivity;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesActivityConfigurationBean;
 
+import net.sf.taverna.t2.workbench.ui.actions.activity.ActivityConfigurationAction;
+import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationDialog;
+
 
 @SuppressWarnings("serial")
 public class CoordinatesConfigureAction

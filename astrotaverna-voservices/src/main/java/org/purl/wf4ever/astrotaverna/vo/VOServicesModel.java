@@ -7,6 +7,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.purl.wf4ever.astrotaverna.vorepo.VORepository;
+import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.ErrorResp;
+
 import net.ivoa.xml.conesearch.v1.ConeSearch;
 import net.ivoa.xml.sia.v1.SimpleImageAccess;
 import net.ivoa.xml.slap.v0.SimpleLineAccess;
@@ -188,6 +191,8 @@ public class VOServicesModel {
 			parameters.put("CDELT", false);
 			parameters.put("ROTANG", false);
 			parameters.put("PROJ", false);
+			
+			
 			
 		} else if (searchType == SimpleLineAccess.class) {
 			// http://www.ivoa.net/Documents/SLAP/20101209/index.html

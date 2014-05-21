@@ -7,14 +7,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+//import java.io.InputStreamReader;
+//import java.util.Map;
 
 import net.sf.taverna.raven.prelauncher.ClassLocation;
 import net.sf.taverna.t2.annotation.AnnotationAssertion;
 
-
-//import java.io.InputStreamReader;
-//import java.util.Map;
-import org.apache.log4j.*;
+import org.apache.log4j.Logger;
 import org.purl.wf4ever.astrotaverna.utils.NoExitSecurityManager_;
 import org.purl.wf4ever.astrotaverna.utils.StreamReaderAsync;
 

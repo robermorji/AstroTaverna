@@ -1,9 +1,12 @@
 package org.purl.wf4ever.astrotaverna.query.ui.serviceprovider;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.Icon;
+
+
 
 import net.sf.taverna.t2.activities.rest.RESTActivity;
 import net.sf.taverna.t2.activities.rest.RESTActivityConfigurationBean;

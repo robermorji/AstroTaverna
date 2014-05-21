@@ -6,14 +6,16 @@ import javax.swing.ImageIcon;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesActivity;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesDegreeActivity;
 
+import net.sf.taverna.t2.workbench.activityicons.ActivityIconSPI;
+import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
+
 public class CoordinatesServiceIcon implements ActivityIconSPI {
 
 	private static Icon icon;
-	
+
 	public int canProvideIconScore(Activity<?> activity) {
 		if ((activity instanceof CoordinatesActivity)
 				|| (activity instanceof CoordinatesDegreeActivity)) {
-			JLabel etiqueta = new JLabel ("Run the current workflow");
 			return DEFAULT_ICON;
 		}
 		return NO_ICON;

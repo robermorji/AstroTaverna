@@ -35,6 +35,9 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import net.ivoa.xml.conesearch.v1.ConeSearch;
+import net.ivoa.xml.sia.v1.SimpleImageAccess;
+import net.ivoa.xml.slap.v0.SimpleLineAccess;
+import net.ivoa.xml.ssa.v0.SimpleSpectralAccess;
 import net.ivoa.xml.voresource.v1.Capability;
 import net.ivoa.xml.voresource.v1.Service;
 import net.sf.taverna.t2.workbench.ui.zaria.UIComponentSPI;
@@ -46,6 +49,7 @@ import net.ivoa.xml.voresource.v1.Interface;
 import net.ivoa.xml.voresource.v1.AccessURL;
 import net.ivoa.xml.vodataservice.v1.ParamHTTP;
 
+import org.apache.log4j.Logger;
 import org.purl.wf4ever.astrotaverna.vo.utils.ModelIterator;
 import org.purl.wf4ever.astrotaverna.vorepo.VORepository.Status;
 
@@ -62,8 +66,6 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 			getController().changeEndpoint((String) combo.getSelectedItem());
 		}
 	}
-	
-	
 
 	public class AddToWorkflow extends AbstractAction {
 		private static final long serialVersionUID = 1L;
@@ -373,7 +375,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		
 		
 		resultsDetails.add(buttonPanel, gbc);
-		
+
 		// gbc.weighty = 0.1;
 		// JPanel filler = new JPanel();
 		// resultsDetails.add(filler, gbc); // filler
@@ -397,9 +399,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 
 		resultsTable.getSelectionModel().setSelectionMode(
 				ListSelectionModel.SINGLE_SELECTION);
-		
-		
-		
+
 		resultsTable.getSelectionModel().addListSelectionListener(
 				new ListSelectionListener() {
 					
@@ -590,8 +590,9 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 			if (!visible)
 				tapSearchTab.setVisible(Boolean.FALSE);
 		}
-		//addToWorkflow.setEnabled(true);
+		addToWorkflow.setEnabled(true);
 	}
+
 
 	public void updateSelection() {
 		updateDetails();

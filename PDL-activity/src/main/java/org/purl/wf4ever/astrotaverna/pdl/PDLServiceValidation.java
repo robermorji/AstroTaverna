@@ -3,11 +3,6 @@ package org.purl.wf4ever.astrotaverna.pdl;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
-
 import net.ivoa.pdl.interpreter.conditionalStatement.StatementHelperContainer;
 import net.ivoa.pdl.interpreter.groupInterpreter.GroupHandlerHelper;
 import net.ivoa.pdl.interpreter.groupInterpreter.GroupProcessor;

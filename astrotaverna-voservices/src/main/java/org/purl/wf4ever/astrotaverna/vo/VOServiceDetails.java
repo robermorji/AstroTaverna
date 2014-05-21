@@ -2,6 +2,8 @@ package org.purl.wf4ever.astrotaverna.vo;
 
 import java.text.SimpleDateFormat;
 
+import org.purl.wf4ever.astrotaverna.vo.utils.HTMLPane;
+
 
 import net.ivoa.xml.conesearch.v1.ConeSearch;
 import net.ivoa.xml.conesearch.v1.Query;

@@ -50,15 +50,14 @@
 			<version>${project.version}</version>
 		</dependency>
 		
-
-		<!--  MyExperiment -->
-		 <dependency>
+		<!--  MyExperiment 
+		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>perspective-myexperiment-astropack</artifactId>
+			<artifactId>perspective-myexperiment</artifactId>
 			<version>${project.version}</version>
 		</dependency> 
-		 
-
+		-->
+		
 		<!-- Workbench runtime for testing from IDE, remove if not using TavernaWorkbenchWithExamplePlugin.main() -->
 		<dependency>
 			<groupId>net.sf.taverna.t2.taverna-workbench</groupId>
@@ -72,7 +71,7 @@
 					example activity. If you want to re-enable for instance WSDL activity, remember 
 					to comment out the exclusion for both wsdl-activity-ui and wsdl-activity 
 					further down. -->
-			   <exclusion>
+				<exclusion>
 					<groupId>net.sf.taverna.t2.ui-activities</groupId>
 					<artifactId>apiconsumer-activity-ui</artifactId>
 				</exclusion>
@@ -105,10 +104,10 @@
 				<exclusion>
 					<groupId>net.sf.taverna.t2.ui-activities</groupId>
 					<artifactId>wsdl-activity-ui</artifactId>
-				</exclusion> 
+				</exclusion>
 				
 				<!-- .. and the t2.activities counterparts -->
-				 <exclusion>
+				<exclusion>
 					<groupId>net.sf.taverna.t2.activities</groupId>
 					<artifactId>apiconsumer-activity</artifactId>
 				</exclusion>
@@ -140,20 +139,18 @@
 				<exclusion>
 					<groupId>net.sf.taverna.t2.activities</groupId>
 					<artifactId>wsdl-activity</artifactId>
-				</exclusion> 
+				</exclusion>
 				
 				<!-- Perspectives pulling in too many dependencies -->
 				<exclusion>
 					<groupId>net.sf.taverna.t2.ui-exts</groupId>
 					<artifactId>perspective-biocatalogue</artifactId>
 				</exclusion>
-
 			 	<exclusion>
 					<groupId>net.sf.taverna.t2.ui-exts</groupId>
 					<artifactId>perspective-myexperiment</artifactId>
 				</exclusion>
 			
-
 				<!-- Taverna use a different version than pdl-param, exclusion in test workbench to avoid conflict -->
 				<!-- Comment slf4j-api for removing PDL.  Uncomment if PDL is again in astrotaverna to avoid conflicts-->
 				
@@ -177,14 +174,6 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-	      <id>apache.snapshots</id>
-	      <name>Apache Snapshot Repository</name>
-	      <url>http://repository.apache.org/snapshots</url>
-	      <releases>
-	        <enabled>false</enabled>
-	      </releases>
-	    </repository>
 	</repositories>
 
 	<name>Astro Taverna Workbench test environment</name>

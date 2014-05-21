@@ -4,13 +4,14 @@ import java.awt.Frame;
 
 import javax.swing.Action;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
-
 import org.purl.wf4ever.astrotaverna.aladin.AladinScriptActivity;
 import org.purl.wf4ever.astrotaverna.image.ui.config.AladinScriptConfigureAction;
+
+import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
 
 
 

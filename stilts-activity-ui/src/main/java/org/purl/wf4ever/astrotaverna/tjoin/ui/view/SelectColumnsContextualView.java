@@ -4,13 +4,16 @@ import java.awt.Frame;
 
 import javax.swing.Action;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
 
-import org.purl.wf4ever.astrotaverna.tjoin.ui.config.SelectColumnsConfigureAction;
 import org.purl.wf4ever.astrotaverna.tpipe.SelectColumnsActivity;
+import org.purl.wf4ever.astrotaverna.tpipe.SelectColumnsActivityConfigurationBean;
+import org.purl.wf4ever.astrotaverna.tjoin.ui.config.SelectColumnsConfigureAction;
+import org.purl.wf4ever.astrotaverna.tjoin.ui.config.StiltsConfigureAction;
 
 
 @SuppressWarnings("serial")

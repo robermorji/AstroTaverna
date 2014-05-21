@@ -1,15 +1,21 @@
 package org.purl.wf4ever.astrotaverna.tjoin.ui.config;
 
 import java.awt.GridLayout;
+import java.net.URI;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ActivityConfigurationPanel;
+import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
 
 import org.purl.wf4ever.astrotaverna.tpipe.CoordTransformationActivity;
 import org.purl.wf4ever.astrotaverna.tpipe.CoordTransformationActivityConfigurationBean;
+import javax.swing.JSpinner;
 
 @SuppressWarnings("serial")
 public class CoordTransformationConfigurationPanel

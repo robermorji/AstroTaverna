@@ -5,6 +5,8 @@ import javax.swing.Action;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesActivity;
 import org.purl.wf4ever.astrotaverna.coordinates.ui.config.CoordinatesConfigureAction;
 
+import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
+
 public class CoordinatesConfigureMenuAction extends
 		AbstractConfigureActivityMenuAction<CoordinatesActivity> {
 

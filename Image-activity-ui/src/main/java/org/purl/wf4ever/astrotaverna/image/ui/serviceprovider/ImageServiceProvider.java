@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.swing.Icon;
 
+
+
 import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
 import net.sf.taverna.t2.servicedescriptions.ServiceDescriptionProvider;
 

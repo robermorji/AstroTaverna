@@ -11,15 +11,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.WeakHashMap;
 
-import net.sf.taverna.t2.reference.ExternalReferenceSPI;
-import net.sf.taverna.t2.reference.ReferenceService;
-import net.sf.taverna.t2.reference.ReferenceSet;
-import net.sf.taverna.t2.reference.T2Reference;
-import net.sf.taverna.t2.reference.impl.external.file.FileReference;
-import net.sf.taverna.t2.renderers.RendererException;
-
-import org.apache.log4j.*;
-
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -27,10 +18,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
-import javax.swing.Renderer;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import net.sf.taverna.t2.reference.ExternalReferenceSPI;
+import net.sf.taverna.t2.reference.ReferenceService;
+import net.sf.taverna.t2.reference.ReferenceSet;
+import net.sf.taverna.t2.reference.T2Reference;
+import net.sf.taverna.t2.reference.impl.external.file.FileReference;
+import net.sf.taverna.t2.renderers.Renderer;
+import net.sf.taverna.t2.renderers.RendererException;
+
+import org.apache.log4j.Logger;
 import org.purl.wf4ever.astrotaverna.samp.TavernaSampConnection;
 import org.purl.wf4ever.astrotaverna.vo.utils.HTMLPane;
 
@@ -57,10 +56,12 @@ public class VOTableRenderer implements Renderer {
 			"http://www.ivoa.net/xml/VOTable/v1.2",
 			"http://us-vo.org/xml/VOTable.dtd");
 
+	@Override
 	public boolean canHandle(String mimeType) {
 		return "application/x-votable+xml".equals(mimeType);
 	}
 
+	@Override
 	public boolean canHandle(ReferenceService referenceService,
 			T2Reference reference, String mimeType) throws RendererException {
 		if (reference.containsErrors() || reference.getDepth() > 0) {
@@ -79,6 +80,7 @@ public class VOTableRenderer implements Renderer {
 		return false;
 	}
 
+	@Override
 	public JComponent getComponent(final ReferenceService referenceService,
 			final T2Reference reference) throws RendererException {
 		final byte[] bytes = (byte[]) referenceService.renderIdentifier(
@@ -237,20 +239,9 @@ public class VOTableRenderer implements Renderer {
 		return new HTMLPane(sb.toString());
 	}
 
+	@Override
 	public String getType() {
 		return "VOTable";
-	}
-
-	@Override
-	public void setValue(Object aValue, boolean isSelected) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Component getComponent() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

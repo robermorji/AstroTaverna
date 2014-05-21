@@ -1,5 +1,6 @@
 package org.purl.wf4ever.astrotaverna.pdl.ui.serviceprovider;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
 
 import org.purl.wf4ever.astrotaverna.pdl.ValidationPDLClientActivity;
 import org.purl.wf4ever.astrotaverna.pdl.ValidationPDLClientActivityConfigurationBean;
+import org.purl.wf4ever.astrotaverna.pdl.ui.serviceprovider.PDLServiceIcon;
 
 public class ValidationPDLClientServiceDesc extends ServiceDescription<ValidationPDLClientActivityConfigurationBean> {
 

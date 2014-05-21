@@ -3,11 +3,11 @@ package org.purl.wf4ever.astrotaverna.image.ui.view;
 import java.util.Arrays;
 import java.util.List;
 
-import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
-import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ContextualViewFactory;
-
 import org.purl.wf4ever.astrotaverna.aladin.AladinMacroActivity;
 import org.purl.wf4ever.astrotaverna.aladin.AladinScriptActivity;
+
+import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
+import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ContextualViewFactory;
 
 
 public class ImageActivityContextViewFactory implements

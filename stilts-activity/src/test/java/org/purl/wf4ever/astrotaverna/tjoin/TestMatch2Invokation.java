@@ -2,7 +2,6 @@ package org.purl.wf4ever.astrotaverna.tjoin;
 
 import uk.ac.starlink.ttools.Stilts;
 
-
 public class TestMatch2Invokation {
 
 	/**

@@ -1,15 +1,18 @@
 package org.purl.wf4ever.astrotaverna.tjoin.ui.serviceprovider;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.Icon;
 
-import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
-import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
-
 import org.purl.wf4ever.astrotaverna.voutils.AddCommonRowToVOTableActivity;
 import org.purl.wf4ever.astrotaverna.voutils.AddCommonRowToVOTableActivityConfigurationBean;
+
+
+
+import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
+import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
 
 
 

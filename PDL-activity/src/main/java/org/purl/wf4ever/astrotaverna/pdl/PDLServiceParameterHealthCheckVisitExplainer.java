@@ -1,23 +1,21 @@
 package org.purl.wf4ever.astrotaverna.pdl;
 
-import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.CONNECTED_TO_NON_PDL;
-import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.NON_METADATA_ERROR;
-//important status constants
-import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.NO_ERROR;
-import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.PRECISION_ERROR;
-import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.SKOS_ERROR;
-import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.TYPE_ERROR;
-import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.UCD_ERROR;
-import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.UNIT_ERROR;
-import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.UNKNOWN;
-import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.UTYPE_ERROR;
+import java.awt.Component;
 
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JPanel;
 
 import net.sf.taverna.t2.lang.ui.ReadOnlyTextArea;
 import net.sf.taverna.t2.visit.VisitKind;
 import net.sf.taverna.t2.visit.VisitReport;
 import net.sf.taverna.t2.workbench.report.explainer.VisitExplainer;
+import net.sf.taverna.t2.workbench.report.view.ReportViewConfigureAction;
+import net.sf.taverna.t2.workflowmodel.Processor;
+
+//important status constants
+import static org.purl.wf4ever.astrotaverna.pdl.PDLServiceParameterHealthCheck.*;
 
 /**
  * 

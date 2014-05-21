@@ -6,15 +6,16 @@ import java.util.List;
 import net.sf.taverna.t2.workbench.file.FileManager;
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.activity.ContextualViewFactory;
+
+import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivity;
+import org.purl.wf4ever.astrotaverna.pdl.ValidationPDLClientActivity;
+
 import net.sf.taverna.t2.workflowmodel.Dataflow;
 import net.sf.taverna.t2.workflowmodel.Processor;
 import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityInputPort;
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityOutputPort;
 import net.sf.taverna.t2.workflowmodel.utils.Tools;
-
-import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivity;
-import org.purl.wf4ever.astrotaverna.pdl.ValidationPDLClientActivity;
 
 
 public class PDLActivityContextViewFactory implements

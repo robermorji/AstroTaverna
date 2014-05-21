@@ -11,7 +11,7 @@ import java.util.concurrent.ExecutionException;
 
 import org.apache.log4j.*;
 
-import javax.jws.WebService;
+//import javax.jws.WebService;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
@@ -21,10 +21,12 @@ import net.ivoa.xml.voresource.v1.AccessURL;
 import net.ivoa.xml.voresource.v1.Capability;
 import net.ivoa.xml.voresource.v1.Interface;
 import net.ivoa.xml.voresource.v1.Service;
+import net.ivoa.xml.voresource.v1.WebService;
 import net.sf.taverna.t2.activities.rest.URISignatureHandler;
 import net.sf.taverna.t2.workbench.ui.impl.Workbench;
 import net.sf.taverna.t2.workbench.ui.workflowview.WorkflowView;
 
+import org.apache.log4j.Logger;
 import org.purl.wf4ever.astrotaverna.vorepo.VORepository.Status;
 
 import java.net.MalformedURLException;
@@ -155,6 +157,7 @@ public class VOServicesController {
 			return;
 		}
 	
+
 		AddToWorkflowDialog addDialog = new AddToWorkflowDialog(
 				serviceDescription, service);
 		addDialog.setController(this);
@@ -168,7 +171,7 @@ public class VOServicesController {
 			Class<? extends Capability> searchType) {
 		VOServiceDescription serviceDescription = new VOServiceDescription();
 		for (Capability c : service.getCapability()) {			
-			if ((searchType != null && !(searchType.isInstance(c))) && !(searchType.getName().contains("TableAccess") && c.getStandardID().contains("TAP"))) {
+			if (searchType != null && !(searchType.isInstance(c))) {
 				continue;
 			}
 			for (Interface i : c.getInterface()) {

@@ -3,9 +3,8 @@ package org.purl.wf4ever.astrotaverna.tjoin.ui.menu;
 import javax.swing.Action;
 
 import net.sf.taverna.t2.workbench.activitytools.AbstractConfigureActivityMenuAction;
-
-import org.purl.wf4ever.astrotaverna.tjoin.ui.config.CheckTemplateFillerConfigureAction;
 import org.purl.wf4ever.astrotaverna.voutils.CheckTemplateFillerActivity;
+import org.purl.wf4ever.astrotaverna.tjoin.ui.config.CheckTemplateFillerConfigureAction;
 
 public class CheckTemplateFillerConfigureMenuAction extends
 		AbstractConfigureActivityMenuAction<CheckTemplateFillerActivity> {

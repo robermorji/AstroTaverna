@@ -26,6 +26,8 @@ import javax.swing.KeyStroke;
 import net.ivoa.xml.voresource.v1.Service;
 import net.sf.taverna.t2.workbench.ui.impl.Workbench;
 
+
+
 public class AddToWorkflowDialog extends JDialog {
 	public class SetInputPort extends AbstractAction implements Action {
 		private static final long serialVersionUID = 1L;

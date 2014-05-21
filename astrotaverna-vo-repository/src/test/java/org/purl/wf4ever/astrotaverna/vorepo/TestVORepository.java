@@ -8,9 +8,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.ws.BindingProvider;
 
+import net.ivoa.xml.adql.v1.ClosedSearchType;
+import net.ivoa.xml.adql.v1.IntersectionSearchType;
+import net.ivoa.xml.adql.v1.LikePredType;
+import net.ivoa.xml.adql.v1.SearchType;
+import net.ivoa.xml.adql.v1.UnionSearchType;
 import net.ivoa.xml.adql.v1.WhereType;
+import net.ivoa.xml.adql.v1.XMatchType;
 import net.ivoa.xml.conesearch.v1.ConeSearch;
 import net.ivoa.xml.sia.v1.SimpleImageAccess;
 import net.ivoa.xml.ssa.v0.SimpleSpectralAccess;
@@ -21,6 +28,7 @@ import net.ivoa.xml.voresource.v1.Service;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.purl.wf4ever.astrotaverna.vorepo.VORepository;
 import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.RegistrySearchPortType;
 
 

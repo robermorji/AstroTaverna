@@ -3,10 +3,10 @@ package org.purl.wf4ever.astrotaverna.pdl.ui.serviceprovider;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import org.purl.wf4ever.astrotaverna.pdl.ValidationPDLClientActivity;
+
 import net.sf.taverna.t2.workbench.activityicons.ActivityIconSPI;
 import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
-
-import org.purl.wf4ever.astrotaverna.pdl.ValidationPDLClientActivity;
 
 public class PDLServiceIcon implements ActivityIconSPI {
 

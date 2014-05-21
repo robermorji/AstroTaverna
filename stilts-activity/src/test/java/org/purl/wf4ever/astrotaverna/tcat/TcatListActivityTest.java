@@ -1,14 +1,20 @@
 package org.purl.wf4ever.astrotaverna.tcat;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
+
 import net.sf.taverna.t2.activities.testutils.ActivityInvoker;
+
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityConfigurationException;
+
 
 import org.junit.AfterClass;
 import org.junit.Before;

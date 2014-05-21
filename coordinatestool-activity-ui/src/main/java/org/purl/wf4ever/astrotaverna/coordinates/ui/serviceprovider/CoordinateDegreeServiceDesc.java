@@ -9,6 +9,9 @@ import javax.swing.Icon;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesActivityConfigurationBean;
 import org.purl.wf4ever.astrotaverna.coordinates.CoordinatesDegreeActivity;
 
+import net.sf.taverna.t2.servicedescriptions.ServiceDescription;
+import net.sf.taverna.t2.workflowmodel.processor.activity.Activity;
+
 
 public class CoordinateDegreeServiceDesc extends ServiceDescription<CoordinatesActivityConfigurationBean> {
 

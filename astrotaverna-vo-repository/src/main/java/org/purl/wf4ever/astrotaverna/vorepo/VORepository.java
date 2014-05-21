@@ -8,6 +8,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.namespace.QName;
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.WebServiceException;
+
 import net.ivoa.wsdl.registrysearch.v1.ResolveResponse;
 import net.ivoa.xml.adql.v1.AtomType;
 import net.ivoa.xml.adql.v1.ClosedSearchType;
@@ -37,10 +42,11 @@ import javax.xml.ws.BindingProvider;
 import javax.xml.ws.WebServiceException;
 
 import org.apache.commons.beanutils.PropertyUtilsBean;
+import org.apache.log4j.Logger;
+
 import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.ErrorResp;
 import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.RegistrySearchPortType;
 import org.purl.wf4ever.astrotaverna.wsdl.registrysearch.RegistrySearchService;
-
 
 public class VORepository {
 	private static final String DUMMY_SEARCH_WSDL = "/wsdl/dummySearch.wsdl";
@@ -220,7 +226,6 @@ public class VORepository {
 			if (!or.isEmpty())
 				and.add(makeConditionSearchType(UnionSearchType.class, or));
 		}
-		
 		where.setCondition(makeConditionSearchType(
 				IntersectionSearchType.class, and));
 

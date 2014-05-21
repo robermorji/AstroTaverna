@@ -1,7 +1,9 @@
 package org.purl.wf4ever.astrotaverna.pdl.ui.view;
 
 import java.awt.Frame;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -11,12 +13,12 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivity;
+
 import net.ivoa.parameter.model.SingleParameter;
 import net.sf.taverna.t2.workbench.ui.views.contextualviews.ContextualView;
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityInputPort;
 import net.sf.taverna.t2.workflowmodel.processor.activity.ActivityOutputPort;
-
-import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivity;
 
 
 //import org.purl.wf4ever.astrotaverna.pdl.PDLServiceActivityConfigurationBean;
