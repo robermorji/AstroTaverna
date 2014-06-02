@@ -59,6 +59,7 @@ public class TestVORepository {
 		assertTrue("Could not find any ConeSearch", foundCapability);
 	}
 	
+	
 		
 	@Ignore("Takes a very long time")	
 	@Test

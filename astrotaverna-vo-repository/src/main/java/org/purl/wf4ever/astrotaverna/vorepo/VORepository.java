@@ -211,11 +211,12 @@ public class VORepository {
 // TODO:
 		
 		String name;
-		int index = 0;
+		int index;
 		for (String kw : keywords) {
 			List<SearchType> or = new ArrayList<SearchType>();
 				if (kw.length()>0)
 				{
+					index = 0;
 					for (String xpath : KEYWORD_XPATHS) {
 						// NOTE: If keywordXpaths.size() == 1 - don't use the
 						// intermediary or
@@ -248,13 +249,15 @@ public class VORepository {
 			Service ser = (Service) res;
 			for (Capability c : ser.getCapability()) {
 				try{
+									
 					if (capabilityType.isInstance(c) || (capabilityType.getName().contains("TableAccess") && c.getStandardID().contains("TAP"))) {
 						services.add(ser);
 						logger.debug("Found " + ser);
 						break;
 					}
 				}catch(Exception ex){
-					System.out.println("Error");
+					logger.info("Error al obtener los capability");
+					
 				}
 			}
 			logger.debug("Capability " + capabilityType.getSimpleName()
