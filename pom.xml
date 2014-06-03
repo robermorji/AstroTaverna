@@ -156,8 +156,8 @@
     <module>astrotaverna-plugin</module>
     
     
-    <!--  Module myexperiment-->
-    <!-- <module>perspective-myexperiment</module> -->
+    <!--  Module astropack-->
+    <module>perspective-myexperiment-astropack</module>
   </modules>
   <scm>
   	<url>https://github.com/wf4ever/astrotaverna</url>
