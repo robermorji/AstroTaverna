@@ -146,11 +146,11 @@
 					<groupId>net.sf.taverna.t2.ui-exts</groupId>
 					<artifactId>perspective-biocatalogue</artifactId>
 				</exclusion>
-			 	<exclusion>
+			<!-- 	<exclusion>
 					<groupId>net.sf.taverna.t2.ui-exts</groupId>
 					<artifactId>perspective-myexperiment</artifactId>
 				</exclusion>
-			
+			-->
 				<!-- Taverna use a different version than pdl-param, exclusion in test workbench to avoid conflict -->
 				<!-- Comment slf4j-api for removing PDL.  Uncomment if PDL is again in astrotaverna to avoid conflicts-->
 				
