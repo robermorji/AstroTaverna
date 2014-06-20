@@ -19,6 +19,11 @@
 	        <enabled>false</enabled>
 	      </releases>
 	    </repository>
+	    <repository>
+			<id>repo-test-seqvista</id>
+			<name>Repo Test SeqVista</name>
+			<url>http://artifactory.fidesol.org:8080/libs-releases-local</url>
+		</repository>
 	 </repositories>
 	    <!-- 
 		<repository>
@@ -143,7 +148,7 @@
 		<dependency>
 			<groupId>uk.ac.starlink</groupId>
 			<artifactId>topcat</artifactId>
-			<version>4.0-1</version>
+			<version>4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>

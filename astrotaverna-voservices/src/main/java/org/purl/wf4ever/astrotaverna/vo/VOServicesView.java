@@ -10,6 +10,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -32,6 +35,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.plaf.ToolTipUI;
 import javax.swing.table.DefaultTableModel;
 
 import net.ivoa.xml.conesearch.v1.ConeSearch;
@@ -159,6 +163,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	private JPanel tapQuery;
 	private JPanel tapTables;
 	private JPanel contenedorPrincipal;
+	private JButton buttonAddWorkFlow;
 	
 	private JTable resultsTable;
 
@@ -371,7 +376,9 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		JPanel buttonPanel = new JPanel();
 		addToWorkflow = new AddToWorkflow();
 		buttonAddWorkFlow = new JButton(addToWorkflow);
-		buttonPanel.add(buttonAddWorkFlow, gbc);
+		this.buttonAddWorkFlow = buttonAddWorkFlow;
+		
+		buttonPanel.add(this.buttonAddWorkFlow, gbc);
 		
 		
 		resultsDetails.add(buttonPanel, gbc);
@@ -428,6 +435,17 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 						tapTables.revalidate();
 						tapTables.repaint();
 						getController().selectService(tableSelection);
+						
+						VOServiceDescription serviceDescription = controller.makeServiceDescription(
+								tableSelection, getModel().getCurrentSearchType());
+						if (serviceDescription.getUrlSignature()==null){
+							VOServicesView.this.getReferenciaButtonAddToWorkFlow(false);
+						}
+						else
+						{
+							VOServicesView.this.getReferenciaButtonAddToWorkFlow(true);
+						}
+						
 					}
 				});
 
@@ -558,6 +576,17 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		
 	}
 
+	//TODO:
+	public void getReferenciaButtonAddToWorkFlow (Boolean activado){
+		this.buttonAddWorkFlow.setEnabled(activado);
+		if ( activado == false){
+			this.buttonAddWorkFlow.setToolTipText("No puede añadirse AddWorkToFlow para este servicio");
+		}
+		else{
+			this.buttonAddWorkFlow.setToolTipText("Añadir AddWorkToflow");
+		}
+	}
+	
 	protected void updateDetails() {
 		Service service = getModel().getSelectedService();
 		serviceDetails.setService(service);

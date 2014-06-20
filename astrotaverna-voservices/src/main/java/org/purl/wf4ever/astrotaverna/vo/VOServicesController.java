@@ -143,28 +143,31 @@ public class VOServicesController {
 
 	public VOServicesController() {
 	}
-
+ //TODO: 
 	public void addToWorkflow() {
 		Service service = getModel().getSelectedService();
 		VOServiceDescription serviceDescription = makeServiceDescription(
 				service, getModel().getCurrentSearchType());
 		if (serviceDescription.getUrlSignature() == null) {
-			String message = "No REST (ParamHTTP) interface found for service "
+			//view.getReferenciaButtonAddToWorkFlow(false);
+			/*String message = "No REST (ParamHTTP) interface found for service "
 					+ service.getShortName();
 			logger.warn(message);
 			JOptionPane.showMessageDialog(getView(), message,
-					"Could not add to workflow", JOptionPane.WARNING_MESSAGE);
-			return;
+			"Could not add to workflow", JOptionPane.WARNING_MESSAGE);
+			return;*/
 		}
-	
-
-		AddToWorkflowDialog addDialog = new AddToWorkflowDialog(
+		else{
+			
+		
+			AddToWorkflowDialog addDialog = new AddToWorkflowDialog(
 				serviceDescription, service);
 		addDialog.setController(this);
 		addDialog.setModel(getModel());
 		addDialog.setLocationRelativeTo(getView());
 		addDialog.setVisible(true);
-
+		}
+		
 	}
 
 	public VOServiceDescription makeServiceDescription(Service service,
@@ -275,7 +278,7 @@ public class VOServicesController {
 			return;
 		}
 		changeEndpoint(endpoint);
-		checkEndpoint(oldEndpoint);
+		checkEndpoint(endpoint);
 	}
 
 	protected void changeEndpoint(URI endpoint) {
