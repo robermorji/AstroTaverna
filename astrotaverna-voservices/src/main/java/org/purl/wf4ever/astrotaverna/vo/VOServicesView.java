@@ -103,10 +103,12 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			//Service tableSelection;
 			String search = keywords.getText();
-			getController().search(searchType, search);
+			tapTables.removeAll();
+			getModel().setSelectedService(null);
 			tapSearchTab.setVisible(Boolean.FALSE);
-
+			getController().search(searchType, search);
 		}
 	}
 
@@ -235,7 +237,10 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	protected Service getTableSelection() {
 		return getServiceAtRow(resultsTable.getSelectedRow());
 	}
-
+	
+	protected Service getTableSelectionDefault(int row){
+		return getServiceAtRow(row);
+	}
 	protected void initialize() {
 		removeAll();
 		
@@ -388,7 +393,11 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 		// resultsDetails.add(filler, gbc); // filler
 		return resultsDetails;
 	}
-
+	
+	public  JTable getResultTable(){
+		return resultsTable;
+	}
+	
 	protected Component makeResultsTable() {
 		resultsTableModel = new DefaultTableModel();
 		resultsTableModel.addColumn("Service");
@@ -435,15 +444,17 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 						tapTables.revalidate();
 						tapTables.repaint();
 						getController().selectService(tableSelection);
-						
-						VOServiceDescription serviceDescription = controller.makeServiceDescription(
-								tableSelection, getModel().getCurrentSearchType());
-						if (serviceDescription.getUrlSignature()==null){
-							VOServicesView.this.getReferenciaButtonAddToWorkFlow(false);
-						}
-						else
+						if (tableSelection!=null)
 						{
-							VOServicesView.this.getReferenciaButtonAddToWorkFlow(true);
+							VOServiceDescription serviceDescription = controller.makeServiceDescription(
+								tableSelection, getModel().getCurrentSearchType());
+							if (serviceDescription.getUrlSignature()==null){
+								VOServicesView.this.getReferenciaButtonAddToWorkFlow(false);
+							}
+							else
+							{
+								VOServicesView.this.getReferenciaButtonAddToWorkFlow(true);
+							}
 						}
 						
 					}
@@ -531,7 +542,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 	}
 
 	protected void setTableSelection(Service selectedService) {
-		if (selectedService == getTableSelection()) {
+		if (selectedService == getTableSelection() || selectedService ==null) {
 			// Already there - perhaps selection was done in table?
 			return;
 		}
@@ -615,6 +626,10 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 					visible = true;
 					break;
 				}
+				else{
+					tapSearchTab.setVisible(Boolean.FALSE);
+					visible = false;
+				}
 			}
 			if (!visible)
 				tapSearchTab.setVisible(Boolean.FALSE);
@@ -625,7 +640,7 @@ public class VOServicesView extends JPanel implements UIComponentSPI {
 
 	public void updateSelection() {
 		updateDetails();
-		setTableSelection(getModel().getSelectedService());
+		//setTableSelection(getModel().getSelectedService());
 	}
 
 	public void updateServices() {

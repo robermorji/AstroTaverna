@@ -13,6 +13,7 @@ import org.apache.log4j.*;
 
 //import javax.jws.WebService;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingWorker;
 
 import net.ivoa.xml.tapregext.v1.TableAccess;
@@ -173,6 +174,7 @@ public class VOServicesController {
 	public VOServiceDescription makeServiceDescription(Service service,
 			Class<? extends Capability> searchType) {
 		VOServiceDescription serviceDescription = new VOServiceDescription();
+	
 		for (Capability c : service.getCapability()) {			
 			if (searchType != null && !(searchType.isInstance(c))) {
 				continue;
@@ -203,7 +205,8 @@ public class VOServicesController {
 					// TODO: Potentially loads to do here
 				}
 			}
-		}
+		  }
+		
 		return serviceDescription;
 	}
 	
@@ -314,11 +317,13 @@ public class VOServicesController {
 	}
 
 	public void search(Class<? extends Capability> searchType, String search) {
-		cancelTaskIfNeeded();
+		
 		getView().statusSearching(searchType, search);
+		cancelTaskIfNeeded();
 		currentTask = new SearchTask(searchType, search);
-		getModel().setSelectedService(null);
+		selectService(null);
 		getModel().clearServices();
+		
 		currentTask.execute();
 	}
 
