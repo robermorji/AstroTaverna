@@ -4,7 +4,7 @@
 
 	<groupId>org.purl.wf4ever.astrotaverna</groupId>
 	<artifactId>astrotaverna</artifactId>
-	<version>1.11-SNAPSHOT</version>
+	<version>1.11</version>
 	<packaging>pom</packaging>
 	<name>Astro Taverna</name>
 
@@ -106,7 +106,7 @@
 			<snapshots />
 			<id>astrotaverna</id>
 			<name>AstroTaverna repository</name>
-			<url>http://wf4ever.github.com/astrotaverna/</url>
+			<url>http://CANUBE.github.com/astrotaverna/</url>
 		</repository>
 	</repositories>
 
@@ -123,13 +123,13 @@
 		<repository>
 			<id>astrotaverna</id>
 			<name>AstroTaverna repository</name>
-            <url>file:///${user.home}/src/astrotaverna-gh/</url>
+            <url>file:///home/rmorcillo/astrotaverna-gh/astrotaverna</url>
             <!-- <url>file:///${user.home}/git/repository/astrotaverna-gh/</url> -->
 		</repository>
 		<snapshotRepository>
 			<id>astrotaverna</id>
 			<name>AstroTaverna repository</name>
-            <url>file:///${user.home}/src/astrotaverna-gh/</url>
+            <url>file:///home/rmorcillo/astrotaverna-gh/astrotaverna</url>
             <!-- <url>file:///${user.home}/git/repository/astrotaverna-gh/</url> -->
 		</snapshotRepository>
 	</distributionManagement>
@@ -160,13 +160,13 @@
     <module>perspective-myexperiment-astropack</module>
   </modules>
   <scm>
-  	<url>https://github.com/wf4ever/astrotaverna</url>
-  	<connection>scm:git:git://github.com/wf4ever/astrotaverna.git</connection>
-  	<developerConnection>scm:git:git@github.com:wf4ever/astrotaverna.git</developerConnection>
+  	<url>https://github.com/CANUBE/astrotaverna</url>
+  	<connection>scm:git:git://github.com/CANUBE/astrotaverna.git</connection>
+  	<developerConnection>scm:git:git@github.com:CANUBE/astrotaverna.git</developerConnection>
   </scm>
   <issueManagement>
   	<system>github</system>
-  	<url>https://github.com/wf4ever/astrotaverna/issues</url>
+  	<url>https://github.com/CANUBE/astrotaverna/issues</url>
   </issueManagement>
   <organization>
   	<name>Wf4Ever</name>

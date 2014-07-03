@@ -3,7 +3,7 @@
 	<parent>
 		<artifactId>astrotaverna</artifactId>
 		<groupId>org.purl.wf4ever.astrotaverna</groupId>
-		<version>1.11-SNAPSHOT</version>
+		<version>1.11</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>votable-renderer</artifactId>
@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>astrotaverna-utils</artifactId>
-			<version>${project.version}</version>
+			<version>1.12</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.taverna.t2.ui-api</groupId>
