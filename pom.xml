@@ -123,13 +123,13 @@
 		<repository>
 			<id>astrotaverna</id>
 			<name>AstroTaverna repository</name>
-            <url>file:///home/rmorcillo/astrotaverna-gh/astrotaverna</url>
+            <url>file:///home/rmorcillo/astrotaverna-gh/astrotaverna/</url>
             <!-- <url>file:///${user.home}/git/repository/astrotaverna-gh/</url> -->
 		</repository>
 		<snapshotRepository>
 			<id>astrotaverna</id>
 			<name>AstroTaverna repository</name>
-            <url>file:///home/rmorcillo/astrotaverna-gh/astrotaverna</url>
+            <url>file:///home/rmorcillo/astrotaverna-gh/astrotaverna/</url>
             <!-- <url>file:///${user.home}/git/repository/astrotaverna-gh/</url> -->
 		</snapshotRepository>
 	</distributionManagement>
@@ -160,7 +160,7 @@
     <module>perspective-myexperiment-astropack</module>
   </modules>
   <scm>
-  	<url>https://github.com/CANUBE/astrotaverna</url>
+  	<url>https://github.com/CANUBE/astrotaverna.git</url>
   	<connection>scm:git:git://github.com/CANUBE/astrotaverna.git</connection>
   	<developerConnection>scm:git:git@github.com:CANUBE/astrotaverna.git</developerConnection>
   </scm>
