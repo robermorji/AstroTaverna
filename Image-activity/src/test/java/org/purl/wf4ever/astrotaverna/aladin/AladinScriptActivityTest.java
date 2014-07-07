@@ -144,6 +144,7 @@ public class AladinScriptActivityTest {
 		
 	}
 	
+	@Ignore
 	@Test
 	public void executeAsynchWithStringsWithoutResult() throws Exception {
 		configBean.setTypeOfInput("String");
@@ -205,8 +206,8 @@ public class AladinScriptActivityTest {
 		
 	}
 	
-	
 	//It is based in local files
+	@Ignore
 	@Test
 	public void executeAsynchWithStringsAndNonExistingGalaxy() throws Exception {
 		configBean.setTypeOfInput("String");

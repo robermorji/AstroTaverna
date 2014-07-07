@@ -44,10 +44,9 @@ public class TestVORepository {
 	
 	@Test
 	public void coneSearch() throws Exception {
-		VORepository repo = new VORepository();
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		List<Service> resources = repo
 				.resourceSearch(ConeSearch.class, "amiga");
-		assertFalse(resources.isEmpty());
 		Service s = resources.get(0);
 		boolean foundCapability = false;
 		for (Capability c : s.getCapability()) {
@@ -99,7 +98,7 @@ public class TestVORepository {
 	
 	@Test
 	public void sdssDeserialization() throws Exception {
-		VORepository repo = new VORepository();
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		List<Service> resources = repo
 				.resourceSearch(ConeSearch.class, "SDSS", "DR7");
 		assertFalse(resources.isEmpty());
@@ -117,7 +116,7 @@ public class TestVORepository {
 	
 	@Test
 	public void defaultConeSearch() throws Exception {
-		VORepository repo = new VORepository();
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		List<Service> resources = repo.resourceSearch(ConeSearch.class);
                 System.out.println(resources);
                 assertTrue(resources.size() > 10);
@@ -126,7 +125,7 @@ public class TestVORepository {
 	
 	@Test
 	public void defaultRepo() throws Exception {
-		VORepository repo = new VORepository();
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		//assertEquals("http://registry.euro-vo.org/services/RegistrySearch",
 		//assertEquals("http://nvo.stsci.edu/vor10/ristandardservice.asmx",
 		assertEquals("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0",
@@ -136,7 +135,7 @@ public class TestVORepository {
 	
 	@Test
 	public void defaultSIASearch() throws Exception {
-		VORepository repo = new VORepository();
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		List<Service> resources = repo.resourceSearch(SimpleImageAccess.class);
 		assertTrue(resources.size() > 20);
 	}
@@ -146,7 +145,7 @@ public class TestVORepository {
 	//@Ignore
 	@Test
 	public void defaultSPASearch() throws Exception {
-		VORepository repo = new VORepository();
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		List<Service> resources = repo
 				.resourceSearch(SimpleSpectralAccess.class);
 		assertTrue(resources.size() > 20);
@@ -155,7 +154,7 @@ public class TestVORepository {
 	
 	@Test
 	public void emptyConeSearch() throws Exception {
-		VORepository repo = new VORepository();
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		List<Service> resources = repo.resourceSearch(ConeSearch.class,
 				"ThisCertainlyShouldNotMatchRight192891");
 		assertTrue(resources.isEmpty());
@@ -164,7 +163,7 @@ public class TestVORepository {
 	
 	@Test
 	public void endPointChanged() {
-		VORepository voRepository = new VORepository();
+		VORepository voRepository = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		RegistrySearchPortType firstPort = voRepository.getPort();
 		assertEquals(
 				//"http://registry.euro-vo.org/services/RegistrySearch",
@@ -185,7 +184,7 @@ public class TestVORepository {
 	
 	@Test
 	public void keywordSearch() throws Exception {
-		VORepository repo = new VORepository();
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		List<Resource> resources = repo
 				.keywordSearch("ivo://svo.amiga.iaa.es/amiga");
 		assertFalse(resources.isEmpty());
@@ -197,7 +196,7 @@ public class TestVORepository {
 	
 	@Test
 	public void multipleConeSearch() throws Exception {
-		VORepository repo = new VORepository();
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		List<Service> resources = repo.resourceSearch(ConeSearch.class,
 				"amiga", "J/A+A/462/507");
 		assertEquals(1, resources.size());
@@ -206,7 +205,7 @@ public class TestVORepository {
 	
 	@Test
 	public void multipleEmptyConeSearch() throws Exception {
-		VORepository repo = new VORepository();
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		List<Service> resources = repo.resourceSearch(ConeSearch.class,
 				"J/A+A/462/507", "ThisCertainlyShouldNotMatchRight192891");
 		assertTrue(resources.isEmpty());
@@ -215,7 +214,7 @@ public class TestVORepository {
 	
 	@Test
 	public void portCached() throws Exception {
-		VORepository voRepository = new VORepository();
+		VORepository voRepository = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		RegistrySearchPortType port = voRepository.getPort();
 		assertSame(port, voRepository.getPort());
 	}
@@ -223,7 +222,7 @@ public class TestVORepository {
 	
 	@Test
 	public void portUncached() throws Exception {
-		VORepository voRepository = new VORepository();
+		VORepository voRepository = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		RegistrySearchPortType port = voRepository.getPort();
 		voRepository.setEndpoint(URI.create("http://example.com/404"));
 		assertNotSame(port, voRepository.getPort());
@@ -232,7 +231,7 @@ public class TestVORepository {
 	
 	@Test
 	public void status() throws Exception {
-		assertEquals(VORepository.Status.OK, new VORepository().getStatus());
+		assertEquals(VORepository.Status.OK, new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0")).getStatus());
 	}
 
 	
@@ -264,7 +263,7 @@ public class TestVORepository {
 
 	@Test
 	public void defaultTableAccessSearch() throws Exception {
-		VORepository repo = new VORepository(URI.create("http://registry.euro-vo.org/services/RegistrySearch"));
+		VORepository repo = new VORepository(URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 		List<Service> resources = repo.resourceSearch(TableAccess.class);
 		assertTrue(resources.size() > 20);
 	}

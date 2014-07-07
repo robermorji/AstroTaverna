@@ -54,7 +54,7 @@ public class VOServicesModel {
 		return Arrays
 				.asList(VORepository.DEFAULT_ENDPOINT,
 						URI.create("http://registry.euro-vo.org/services/RegistrySearch"),
-						URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"), 
+						URI.create("http://registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"),
 						URI.create("http://alt.registry.astrogrid.org/astrogrid-registry/services/RegistryQueryv1_0"));
 	}
 
