@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.purl.wf4ever.astrotaverna</groupId>
 		<artifactId>astrotaverna</artifactId>
-		<version>1.10.03</version>
+		<version>1.11-SNAPSHOT</version>
 	</parent>
 	<artifactId>astrotaverna-voservices</artifactId>
   <version>1.11</version>
@@ -45,7 +45,7 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>astrotaverna-utils</artifactId>
-			<version>1.12</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.taverna.t2.ui-api</groupId>
