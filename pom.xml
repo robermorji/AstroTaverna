@@ -4,7 +4,7 @@
 
 	<groupId>org.purl.wf4ever.astrotaverna</groupId>
 	<artifactId>astrotaverna</artifactId>
-	<version>1.11-SNAPSHOT</version>
+	<version>1.11-SNAPSHOTS</version>
 	<packaging>pom</packaging>
 	<name>Astro Taverna</name>
 
@@ -169,7 +169,7 @@
   	<url>https://github.com/CANUBE/astrotaverna.git</url>
   	<connection>scm:git:git://github.com/CANUBE/astrotaverna.git</connection>
   	<developerConnection>scm:git:git@github.com:CANUBE/astrotaverna.git</developerConnection>
-    <tag>astrotaverna-1.11</tag>
+    <tag>1.11-SNAPSHOTS</tag>
   </scm>
   <issueManagement>
   	<system>github</system>
