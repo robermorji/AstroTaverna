@@ -7,7 +7,7 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>file-reference-builder</artifactId>
-  <version>1.11</version>
+  <version>1.11-SNAPSHOT</version>
   <name>Taverna file reference builder</name>  
   <dependencies>
   	<dependency>
