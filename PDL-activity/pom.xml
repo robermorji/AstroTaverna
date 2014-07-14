@@ -4,11 +4,11 @@
 	<parent>
 		<groupId>org.purl.wf4ever.astrotaverna</groupId>
 		<artifactId>astrotaverna</artifactId>
-		<version>1.11-SNAPSHOTS</version>
+		<version>1.12</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>PDL-activity</artifactId>
-  <version>1.11-SNAPSHOTS</version>
+  <version>1.12</version>
 	<name>PDL Taverna activity</name>
 
 	<dependencies>
