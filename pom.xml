@@ -4,7 +4,7 @@
 
 	<groupId>org.purl.wf4ever.astrotaverna</groupId>
 	<artifactId>astrotaverna</artifactId>
-	<version>1.11-SNAPSHOTS</version>
+	<version>1.12</version>
 	<packaging>pom</packaging>
 	<name>Astro Taverna</name>
 
@@ -40,7 +40,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.5</version>
+				<version>2.4.2</version>
+				<configuration>
+					<username>rmorcilloFidesol</username>
+				    
+				</configuration>
 			
 			</plugin>
 			<plugin>
@@ -169,8 +173,9 @@
   	<url>https://github.com/CANUBE/astrotaverna.git</url>
   	<connection>scm:git:git://github.com/CANUBE/astrotaverna.git</connection>
   	<developerConnection>scm:git:git@github.com:CANUBE/astrotaverna.git</developerConnection>
-    <tag>1.11-SNAPSHOTS</tag>
+    <tag>astrotaverna-1.12</tag>
   </scm>
+  
   <issueManagement>
   	<system>github</system>
   	<url>https://github.com/CANUBE/astrotaverna/issues</url>
