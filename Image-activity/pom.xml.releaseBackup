@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.purl.wf4ever.astrotaverna</groupId>
 		<artifactId>astrotaverna</artifactId>
-		<version>1.13</version>
+		<version>1.13-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>stilts-activity</artifactId>
-  <version>1.13</version>
-	<name>Stilts utilities suite activity</name>
+	<artifactId>Image-activity</artifactId>
+  <version>1.13-SNAPSHOT</version>
+	<name>Aladin utilities suite activity</name>
 
 	<dependencies>
 		<dependency>
@@ -24,9 +24,22 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>uk.ac.starlink</groupId>
-			<artifactId>stiltsAPI</artifactId>
-			<version>2.4</version>
+			<groupId>cds.aladin</groupId>
+			<artifactId>Aladin</artifactId>
+			<version>7.5</version>
+			<!-- This exclusion is for testing if solve the signer information exception -->
+			<exclusions>
+		        <exclusion>  <!-- declare the exclusion here -->
+		          <groupId>uk.ac.starlink</groupId>
+		          <artifactId>stiltsAPI</artifactId>
+		        </exclusion>
+	      </exclusions> 
 		</dependency>
+		<!-- JGS: this is to be able to use the class ClassLocation to know where are the jars -->
+        <dependency>
+            <groupId>net.sf.taverna.t2.infrastructure</groupId>
+            <artifactId>prelauncher</artifactId>
+            <version>${t2.infrastructure.version}</version>
+        </dependency>
 	</dependencies>
 </project>

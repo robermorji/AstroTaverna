@@ -4,16 +4,17 @@
 	<parent>
 		<groupId>org.purl.wf4ever.astrotaverna</groupId>
 		<artifactId>astrotaverna</artifactId>
-		<version>1.12</version>
+		<version>1.13-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>coordinatestool-activity-ui</artifactId>
-	<name>Coordinates Taverna activity UI bindings</name>
+	<artifactId>stilts-activity-ui</artifactId>
+  <version>1.13-SNAPSHOT</version>
+	<name>Stilts utilities suite UI bindings</name>
 
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>coordinatestool-activity</artifactId>
+			<artifactId>stilts-activity</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -36,6 +37,6 @@
 			<artifactId>activity-tools</artifactId>
 			<version>${t2.ui.impl.version}</version>
 		</dependency>
-
+		
 	</dependencies>
 </project>
